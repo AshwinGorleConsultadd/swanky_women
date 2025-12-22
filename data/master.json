@@ -25,10 +25,10 @@
         "sample_production": ""
     },
     "page_1" : {
-            "garment_back_view_url" : "assets/a.png",
-            "garment_front_view_url" : "assets/b.png",
-            "style_number" : "123345",
-            "date" : "22/12/25",
+            "garment_back_view_url" : "assets/front.png",
+            "garment_front_view_url" : "assets/back.png",
+            "style_number" : "",
+            "date" : "",
             "brand_name" : "Swanky",
             "collection_name" : "JC & CO",
             "brand_logo" : "assets/brand_logo.png"
