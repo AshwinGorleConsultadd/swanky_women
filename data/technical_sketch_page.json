@@ -12,8 +12,8 @@
     "sample_pre_production": "",
     "sample_production": "",
   
-    "front_sketch_url": "assets/sketches/front.png",
-    "back_sketch_url": "assets/sketches/back.png",
+    "technical_sketch_img": "assets/sketches/front.png",
+   
   
     "brand_label": {
       "image_url": "assets/labels/brand_label.png",

@@ -34,8 +34,17 @@
             "brand_logo" : "assets/brand_logo.png"
     },
     "page_2" : {
-        "front_sketch_url": "assets/sketches/front.png",
-        "back_sketch_url": "assets/sketches/back.png",
+        "front_image_url": "",
+        "back_image_url": "",
+        "detail_image_1_url": "",
+        "detail_image_2_url": "",
+        "detail_image_3_url": "",
+        "detail_image_4_url": "",
+        "color": "BLACK",
+        "details": "som details her in proper formate"
+    },
+    "page_3" : {
+        "technical_sketch_img": "assets/sketches/front.png",
   
         "brand_label": {
         "image_url": "assets/labels/brand_label.png",
@@ -50,22 +59,13 @@
         },
     
         "care_label": {
-        "image_url": "assets/labels/care_label.png",
+        "image_url": "assets/care_label.png",
         "size": "Approx 5 cm × 8 cm",
         "placement": "Inner left side seam, above 10–15 cm from the hem"
         },
-    
+        
+        "care_label_img" : "assets/care_label.png",
         "label_notes": "The color of the labels is white. Type of: 100% Recycled polyester woven label."
-    },
-    "page_3" : {
-        "front_image_url": "",
-        "back_image_url": "",
-        "detail_image_1_url": "",
-        "detail_image_2_url": "",
-        "detail_image_3_url": "",
-        "detail_image_4_url": "",
-        "color": "BLACK",
-        "details": "som details her in proper formate"
     },
     "page_4" : {
         "accessories": [
@@ -142,8 +142,7 @@
         ]
     },
     "page_6" : {
-        "front_measurement_image_url" : "",
-    "back_measurement_image_url" : "",
+    "measurement_image_url" : "",
 
     "measurements": [
         {
@@ -342,7 +341,7 @@
           },
         
           "care_label": {
-            "image": "assets/labels/care_label.png"
+            "image": "assets/care_label.png"
           },
         
           "care_label_instructions": [

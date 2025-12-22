@@ -147,15 +147,16 @@
             height: 80px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: left;
             background: #fff;
             margin-bottom: 10px;
         }
 
         .label-img-wrapper img {
-            max-height: 100%;
-            max-width: 100%;
+           
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+         
         }
 
         .label-specs {
@@ -177,6 +178,83 @@
             padding-bottom: 20px;
             line-height: 1.8;
         }
+
+
+     /* brand card */
+        .brand-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            padding: 12px 20px;
+            background: #fff;
+            border-radius: 4px;
+
+            /* Shadow similar to image */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+            /* Makes it adapt to parent */
+            max-width: 100%;
+            max-height: 110%;
+            box-sizing: border-box;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Brand name */
+        .brand-name {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        /* Subtitle */
+        .brand-subtitle {
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        /* URL */
+        .brand-url {
+            font-size: 11px;
+            word-break: break-word;
+        }
+
+          /* Size Label */
+        
+          .size_card{
+            position: relative;
+            left: 0px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+ 
+            padding: 16px 25px;
+            background: #fff;
+            border-radius: 4px;
+
+            /* Shadow similar to image */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+            /* Makes it adapt to parent */
+            max-width: 100%;
+            max-height: 110%;
+            box-sizing: border-box;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+    
+          }
+
+          .care-label-wrapper img {
+            max-width: 150px;
+            max-height: 220px;
+            object-fit: contain;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
 
     </style>
 </head>
@@ -220,6 +298,8 @@
             <div class="info-row">Sample Size Production Sample: {{ header.sample_production }}</div>
         </div>
     </header>
+
+    
     <div class="sketch-container">
         <img src="{{ page_2.technical_sketch_img }}" alt="Technical Sketch Front and Back" class="sketch-image">
     </div>
@@ -231,7 +311,13 @@
         <div class="label-card">
             <div class="label-title">Brand Label</div>
             <div class="label-img-wrapper">
-                <img src="{{ page_2.brand_label_img }}" alt="Brand Label">
+                <!-- <img src="{{ page_2.brand_label_img }}" alt="Brand Label"> -->
+                <div class="brand-card">
+                    <div class="brand-name">Swanky</div>
+                    <div class="brand-subtitle">Women’s Asymmetrical Dress</div>
+                    <div class="brand-url">https://jccobrand.com/</div>
+                </div>  
+
             </div>
             <div class="label-specs">
                 <strong>Approx 5 cm (W) x 3 cm (H)</strong>
@@ -242,7 +328,10 @@
         <div class="label-card">
             <div class="label-title">Size Label</div>
             <div class="label-img-wrapper">
-                <img src="{{ page_2.size_label_img }}" alt="Size Label">
+                <!-- <img src="{{ page_2.size_label_img }}" alt="Size Label"> -->
+                 <div class="size_card">
+                    <div class="brand-name" style="font-size: 40px;">S</div>
+                 </div>
             </div>
             <div class="label-specs">
                 <strong>Approx 2.5 cm x 2.5 cm</strong>
@@ -253,7 +342,8 @@
         <div class="label-card">
             <div class="label-title">Care Label</div>
             <div class="label-img-wrapper">
-                <img src="{{ page_2.care_label_img }}" alt="Care Label">
+                <img style="width: 58px;" src="{{ page_3.care_label_img }}" alt="Care Label">
+                <!-- <img style="width: 58px;" src="../assets/care_label.png" alt="Care Label"> -->
             </div>
             <div class="label-specs">
                 <strong>Approx 5 cm x 8 cm</strong>
