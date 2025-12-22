@@ -97,8 +97,8 @@ with open(DATA_DIR / "master.json") as f:
 # --------------------------------------------------
 PAGES = [
     ("intro_page.html", "page_1.pdf"),
-    ("technical_sketch_page.html", "page_2.pdf"),
     ("3d_cad_design_page.html", "page_3.pdf"),
+    ("technical_sketch_page.html", "page_2.pdf"),
     ("accessories_page.html", "page_4.pdf"),
     ("product_construction.html", "page_5.pdf"),
     ("measurements.html", "page_6.pdf"),
