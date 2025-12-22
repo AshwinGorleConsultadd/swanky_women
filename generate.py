@@ -68,8 +68,7 @@
 # ).write_pdf(
 #     "Accessories.pdf",
 #     presentational_hints=True  # VERY IMPORTANT
-# )
-
+#)
 
 
 import json

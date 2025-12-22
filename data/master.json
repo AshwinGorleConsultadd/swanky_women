@@ -10,7 +10,6 @@
         "page_8" : "size_chart_page", 
         "page_9" : "wash_and_care_label"
     },
-
     "header" : {
         "date": "30/08/2025",
         "season": "Fall 25",
@@ -25,14 +24,14 @@
         "sample_pre_production": "",
         "sample_production": ""
     },
-    
     "page_1" : {
-            "garment_back_view_url" : "",
-            "garment_front_view_url" : "",
-            "style_number" : "",
-            "date" : "",
+            "garment_back_view_url" : "assets/a.png",
+            "garment_front_view_url" : "assets/b.png",
+            "style_number" : "123345",
+            "date" : "22/12/25",
             "brand_name" : "Swanky",
-            "collection_name" : "JC & CO"
+            "collection_name" : "JC & CO",
+            "brand_logo" : "assets/brand_logo.png"
     },
     "page_2" : {
         "front_sketch_url": "assets/sketches/front.png",
@@ -58,7 +57,6 @@
     
         "label_notes": "The color of the labels is white. Type of: 100% Recycled polyester woven label."
     },
-
     "page_3" : {
         "front_image_url": "",
         "back_image_url": "",
@@ -69,7 +67,6 @@
         "color": "BLACK",
         "details": "som details her in proper formate"
     },
-
     "page_4" : {
         "accessories": [
             {
@@ -80,7 +77,6 @@
             }
         ]
     },
-
     "page_5" : {
         "seams": [
             {
@@ -145,7 +141,6 @@
             }
         ]
     },
-
     "page_6" : {
         "front_measurement_image_url" : "",
     "back_measurement_image_url" : "",
