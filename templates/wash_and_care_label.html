@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wash and Care Label</title>
+
+    <style>
+        
+
+        @page {
+            size: 1240px 790px;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+        }
+
+        .page-container {
+            width: 1200px;
+            min-height: 750px;
+            margin: 20px;
+            border: 3px solid #000;
+        }
+
+        /* ================= HEADER ================= */
+
+        .main-header {
+            display: flex;
+            border-bottom: 1px solid #000;
+        }
+
+        .header-left, .header-right {
+            width: 30%;
+        }
+
+        .header-center {
+            width: 40%;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-row {
+            border-top: 1px solid #000;
+            padding: 5px 10px;
+            font-size: 13px;
+            height: 30px;
+        }
+
+        .info-row.desc {
+            height: 60px;
+        }
+
+        .header-center h1 {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: rgb(71, 71, 70);
+        }
+
+        .category {
+            border-top: 1px solid #000;
+            text-align: center;
+            padding: 5px;
+            font-size: 13px;
+        }
+
+        .brand-row {
+            display: flex;
+            height: 50%;
+        }
+
+        .brand-label {
+            padding: 5px 10px;
+            font-size: 13px;
+        }
+
+        .brand-logo {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #000;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: serif;
+        }
+
+        .logo-sub {
+            font-size: 8px;
+            margin-top: -5px;
+        }
+
+        /* ================= LABEL SECTION ================= */
+
+        .label-section {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 13px;
+            margin : 2%
+        }
+
+        .label-row {
+            display: flex;
+            width: 96%;
+            border: 1.5px solid #333;
+            margin-bottom: 15px;
+        }
+
+        .label-box {
+            width: 50%;
+            padding: 15px 20px;
+        }
+
+        .label-box + .label-box {
+            border-left: 1px solid #333;
+        }
+
+        .box-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .wash-content p {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .care-label-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .care-label-wrapper img {
+            max-width: 180px;
+            max-height: 320px;
+            object-fit: contain;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .instruction-list {
+            padding-left: 18px;
+            line-height: 1.6;
+        }
+
+        .instruction-list li {
+            margin-bottom: 6px;
+        }
+
+        .standards-content p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <!-- ================= HEADER ================= -->
+    <header class="main-header">
+        <div class="header-left">
+            <div class="info-row">Date: {{ header.date }}</div>
+            <div class="info-row">Season: {{ header.season }}</div>
+            <div class="info-row">Collection: {{ header.collection }}</div>
+            <div class="info-row">Style Name: {{ header.style_name }}</div>
+            <div class="info-row desc">Description: {{ header.description }}</div>
+        </div>
+
+        <div class="header-center">
+            <h1>Wash and Care Label</h1>
+            <div class="category">{{ header.category }}</div>
+        </div>
+
+        <div class="header-right">
+            <div class="brand-row">
+                <div style="width: 55%;">
+                    <div class="brand-label">Brand: {{ header.brand }}</div>
+                    <div class="info-row">Size Range: {{ header.size_range }}</div>
+                    <div class="info-row">Total order quantity: {{ header.total_order_quantity }}</div>
+                </div>
+                <div class="brand-logo">
+                    <span class="logo-text">{{ header.brand }}</span>
+                    <span class="logo-sub">By {{ header.collection }}</span>
+                </div>
+            </div>
+            <div class="info-row">Sample Size 1st-Approval: {{ header.sample_size_1st }}</div>
+            <div class="info-row">Sample Size Pre-Production: {{ header.sample_pre_production }}</div>
+            <div class="info-row">Sample Size Production Sample: {{ header.sample_production }}</div>
+        </div>
+    </header>
+
+    <!-- ================= WASH & CARE ================= -->
+    <div class="label-section">
+
+        <!-- TOP -->
+        <div class="label-row">
+
+            <!-- WASH LABEL -->
+            <div class="label-box">
+                <div class="box-title">WASH LABEL</div>
+                <div class="wash-content">
+                    <p><strong>Composition:</strong> <em>{{ page_9.wash_label.composition }}</em></p>
+                    <p><strong>Washing Instructions:</strong> <em>{{ page_9.wash_label.washing_instructions }}</em></p>
+                    <p><strong>Bleaching:</strong> <em>{{ page_9.wash_label.bleaching }}</em></p>
+                    <p><strong>Drying Instructions:</strong> <em>{{ page_9.wash_label.drying_instructions }}</em></p>
+                    <p><strong>Ironing Instructions:</strong> <em>{{ page_9.wash_label.ironing_instructions }}</em></p>
+                    <p>
+                        <strong>Dry Cleaning:</strong>
+                        <em>{{ page_9.wash_label.dry_cleaning.line_1 }}<br>{{ page_9.wash_label.dry_cleaning.line_2 }}</em>
+                    </p>
+                    <p>The carelabel colors: <strong>{{ page_9.wash_label.label_colors }}</strong></p>
+                </div>
+            </div>
+
+            <!-- CARE LABEL IMAGE -->
+            <div class="label-box">
+                <div class="box-title text-right">CARE LABEL</div>
+                <div class="care-label-wrapper">
+                    <img src="{{ page_9.care_label.image }}" alt="Care Label">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="label-row">
+            <!-- CARE INSTRUCTIONS -->
+            <div class="label-box">
+                <div class="box-title">CARE LABEL INSTRUCTIONS</div>
+                <ul class="instruction-list">
+                    {% for instruction in page_9.care_label_instructions %}
+                        <li>{{ instruction | safe }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- OTHER STANDARDS -->
+            <div class="label-box">
+                <div class="box-title">OTHER STANDARDS</div>
+                <div class="standards-content">
+                    <p>{{ page_9.other_standards.intro }}</p>
+                    {% for standard in other_standards %}
+                        <p><strong>{{ standard.title }}</strong> – {{ standard.description }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
