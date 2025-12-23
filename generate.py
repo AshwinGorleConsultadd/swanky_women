@@ -77,71 +77,76 @@ from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 from pypdf import PdfWriter, PdfReader
 
-BASE_DIR = Path(__file__).resolve().parent
-TEMPLATES_DIR = BASE_DIR / "templates"
-DATA_DIR = BASE_DIR / "data"
-TEMP_DIR = BASE_DIR / "temp"
 
-TEMP_DIR.mkdir(exist_ok=True)
+def generatePdf():
+    BASE_DIR = Path(__file__).resolve().parent
+    TEMPLATES_DIR = BASE_DIR / "templates"
+    DATA_DIR = BASE_DIR / "data"
+    TEMP_DIR = BASE_DIR / "temp"
 
-env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
+    TEMP_DIR.mkdir(exist_ok=True)
 
-# --------------------------------------------------
-# Load MASTER DATA
-# --------------------------------------------------
-with open(DATA_DIR / "master.json") as f:
-    data = json.load(f)
+    env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
 
-# --------------------------------------------------
-# Page order
-# --------------------------------------------------
-PAGES = [
-    ("intro_page.html", "page_1.pdf"),
-    ("3d_cad_design_page.html", "page_3.pdf"),
-    ("technical_sketch_page.html", "page_2.pdf"),
-    ("accessories_page.html", "page_4.pdf"),
-    ("product_construction.html", "page_5.pdf"),
-    ("measurements.html", "page_6.pdf"),
-    ("fabrics_quality_standards.html", "page_7.pdf"),
-    ("size_chart_page.html", "page_8.pdf"),
-    ("wash_and_care_label.html", "page_9.pdf"),
-]
+    # --------------------------------------------------
+    # Load MASTER DATA
+    # --------------------------------------------------
+    with open(DATA_DIR / "master_filled.json") as f:
+        data = json.load(f)
 
-generated_pdfs = []
+    # --------------------------------------------------
+    # Page order
+    # --------------------------------------------------
+    PAGES = [
+        ("intro_page.html", "page_1.pdf"),
+        ("3d_cad_design_page.html", "page_3.pdf"),
+        ("technical_sketch_page.html", "page_2.pdf"),
+        ("accessories_page.html", "page_4.pdf"),
+        ("product_construction.html", "page_5.pdf"),
+        ("measurements.html", "page_6.pdf"),
+        ("fabrics_quality_standards.html", "page_7.pdf"),
+        ("size_chart_page.html", "page_8.pdf"),
+        ("wash_and_care_label.html", "page_9.pdf"),
+    ]
 
-# --------------------------------------------------
-# STEP 1: Generate individual PDFs
-# --------------------------------------------------
-for template_name, output_name in PAGES:
-    template = env.get_template(template_name)
-    html = template.render(**data)
+    generated_pdfs = []
 
-    output_path = TEMP_DIR / output_name
+    # --------------------------------------------------
+    # STEP 1: Generate individual PDFs
+    # --------------------------------------------------
+    for template_name, output_name in PAGES:
+        template = env.get_template(template_name)
+        html = template.render(**data)
 
-    HTML(
-        string=html,
-        base_url=str(BASE_DIR)
-    ).write_pdf(
-        output_path,
-        presentational_hints=True
-    )
+        output_path = TEMP_DIR / output_name
 
-    generated_pdfs.append(output_path)
-    print(f"✅ Generated {output_name}")
+        HTML(
+            string=html,
+            base_url=str(BASE_DIR)
+        ).write_pdf(
+            output_path,
+            presentational_hints=True
+        )
 
-# --------------------------------------------------
-# STEP 2: Merge PDFs using PdfWriter (pypdf 5.x)
-# --------------------------------------------------
-writer = PdfWriter()
+        generated_pdfs.append(output_path)
+        print(f"✅ Generated {output_name}")
 
-for pdf_path in generated_pdfs:
-    reader = PdfReader(str(pdf_path))
-    for page in reader.pages:
-        writer.add_page(page)
+    # --------------------------------------------------
+    # STEP 2: Merge PDFs using PdfWriter (pypdf 5.x)
+    # --------------------------------------------------
+    writer = PdfWriter()
 
-final_pdf_path = BASE_DIR / "Tech_Pack.pdf"
+    for pdf_path in generated_pdfs:
+        reader = PdfReader(str(pdf_path))
+        for page in reader.pages:
+            writer.add_page(page)
 
-with open(final_pdf_path, "wb") as f:
-    writer.write(f)
+    final_pdf_path = BASE_DIR / "Tech_Pack.pdf"
 
-print(f"\n🎉 Final PDF created: {final_pdf_path}")
+    with open(final_pdf_path, "wb") as f:
+        writer.write(f)
+
+    print(f"\n🎉 Final PDF created: {final_pdf_path}")
+    return final_pdf_path
+
+generatePdf()

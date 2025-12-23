@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class TechPackHeader(BaseModel):
     date: str
@@ -60,3 +60,27 @@ class SizeChartModel(BaseModel):
     m: float
     l: float
     xl: float
+
+
+class Page2DataModel(BaseModel):
+    color: str
+    fabrics: Optional[str] = ""
+    details: Optional[str] = ""
+
+class AccessoriesList(BaseModel):
+    accessories: List[accoriesModel]
+
+class SeamsList(BaseModel):
+    seams: List[SeamsModel]
+
+class MeasurementsList(BaseModel):
+    measurements: List[MeasurementsModel]
+
+class FabricsList(BaseModel):
+    fabrics: List[FabricModel]
+
+class QualityStandardsList(BaseModel):
+    quality_standards: List[FabricQualityStandardModel]
+
+class SizeChartList(BaseModel):
+    size_chart: List[SizeChartModel]
