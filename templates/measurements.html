@@ -184,6 +184,8 @@
             padding: 10px;
             
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
         }
 
         /* Table guarantees stable layout in PDF */
@@ -290,13 +292,11 @@
 
 
     <div class="two-image-section">
-        <table class="two-image-table">
-            <tr>
-                <td class="image-cell">
-                    <img src="{{ page_6.measurement_image_url }}" alt="front measurement Image">
-                </td>
-            </tr>
-        </table>
+       
+                    <img width="200px" src="{{ page_6.measurement_image_url }}" alt="front measurement Image">
+                    <!-- <img  src="../assets/ab-label.png" alt="front measurement Image"> -->
+        
+     
     </div>
 
 

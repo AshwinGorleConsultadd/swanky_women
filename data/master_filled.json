@@ -188,7 +188,7 @@
         ]
     },
     "page_6": {
-        "measurement_image_url": "ab-label.png",
+        "measurement_image_url": "assets/ab-label.png",
         "measurements": [
             {
                 "point_of_measurement": "Bust",

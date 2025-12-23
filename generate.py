@@ -109,6 +109,13 @@ def generatePdf():
         ("wash_and_care_label.html", "page_9.pdf"),
     ]
 
+    # PAGES = [
+        
+    #     ("technical_sketch_page.html", "page_2.pdf"),
+    #     ("measurements.html", "page_6.pdf")
+  
+    # ]
+
     generated_pdfs = []
 
     # --------------------------------------------------
