@@ -400,6 +400,8 @@ import shutil
 import base64
 from datetime import datetime
 from main import generate_techpack
+import streamlit.components.v1 as components
+
 
 # -----------------------------
 # Configuration
@@ -554,18 +556,20 @@ if generate_btn:
         st.warning("⚠️ Please upload at least one garment image.")
     else:
         try:
-            with st.spinner("📤 Saving images to public folder..."):
-                saved_paths = save_images_to_public(uploaded_images)
+            # with st.spinner("📤 Saving images to public folder..."):
+            #     saved_paths = save_images_to_public(uploaded_images)
 
-            with status_container:
-                st.info("⚙️ Analyzing images and generating tech pack...")
+            # with status_container:
+            #     st.info("⚙️ Analyzing images and generating tech pack...")
 
-            with st.spinner("🎨 Creating tech pack..."):
-                pdf_path = generate_techpack(saved_paths, input_context)
+            # with st.spinner("🎨 Creating tech pack..."):
+            #     pdf_path = generate_techpack(saved_paths, input_context)
 
+            pdf_path = "Tech_Pack.pdf"
             if pdf_path and os.path.exists(pdf_path):
                 with status_container:
                     st.success("✅ Tech pack generated successfully!")
+                
 
                 with open(pdf_path, "rb") as f:
                     pdf_bytes = f.read()
@@ -582,19 +586,46 @@ if generate_btn:
 
                     try:
                         b64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
-                        st.markdown(
+
+                        components.html(
                             f"""
-                            <iframe
-                                src="data:application/pdf;base64,{b64_pdf}"
-                                width="100%"
-                                height="700px"
-                                style="border:none;">
-                            </iframe>
+                            <html>
+                                <head>
+                                    <style>
+                                        body {{
+                                            margin: 0;
+                                            background: #f9fafb;
+                                        }}
+                                        .pdf-wrapper {{
+                                            width: 100%;
+                                            height: 90vh;
+                                            padding: 12px;
+                                            box-sizing: border-box;
+                                        }}
+                                        iframe {{
+                                            width: 100%;
+                                            height: 100%;
+                                            border: none;
+                                            border-radius: 12px;
+                                            background: white;
+                                        }}
+                                    </style>
+                                </head>
+                                <body>
+                                    <div class="pdf-wrapper">
+                                        <iframe
+                                            src="data:application/pdf;base64,{b64_pdf}#toolbar=1&navpanes=0&scrollbar=1">
+                                        </iframe>
+                                    </div>
+                                </body>
+                            </html>
                             """,
-                            unsafe_allow_html=True
+                            height=900,
                         )
+
                     except Exception:
                         st.info(f"PDF saved at: {os.path.abspath(pdf_path)}")
+
             else:
                 st.error("❌ PDF generation failed.")
 

@@ -245,8 +245,8 @@
             <!-- CARE LABEL IMAGE -->
             <div class="label-box">
                 <div class="care-label-wrapper">
-                    <img src="{{ page_9.care_label.image }}" alt="Care Label">
-                    <!-- <img src="../assets/care_lable.png" alt="Care Label"> -->
+                    <!-- <img src="{{ page_9.care_label.image }}" alt="Care Label"> -->
+                    <img src="../assets/label_care.png" alt="Care Label">
                 </div>
             </div>
 
@@ -268,7 +268,7 @@
             <div class="label-box">
                 <div class="box-title">OTHER STANDARDS</div>
                 <div class="standards-content">
-                    <p>{{ page_9.other_standards.intro }}</p>
+                    <!-- <p>{{ page_9.other_standards.intro }}</p> -->
                     {% for standard in other_standards %}
                         <p><strong>{{ standard.title }}</strong> – {{ standard.description }}</p>
                     {% endfor %}
