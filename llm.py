@@ -39,7 +39,7 @@ def llm_structured(query: str, output_schema: BaseModel):
     query: str -> user question
     output_schema: pydantic BaseModel -> defines structured output
     """
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
+    llm = ChatOpenAI(model="gpt-5", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
     
     # Bind the schema to the LLM
     llm_with_structure = llm.with_structured_output(output_schema)
@@ -85,7 +85,7 @@ def analyze_images(image_paths: List[str], prompt: str):
     content = [{"type": "input_text", "text": prompt}] + images_content
 
     response = client.responses.create(
-        model="gpt-4o-mini",  # or another vision-capable model
+        model="gpt-4o",  # or another vision-capable model
         input=[
             {
                 "role": "user",
@@ -126,7 +126,9 @@ if __name__ == "__main__":
         prompt=PROMPT,
     )
 
+    print("result ", result)
+
     print(result.output[0].content[0].text)
 
     # print("\n=== STRUCTURED OUTPUT ===\n")
-    # print(result.model_dump_json(indent=2))
+    print(result.model_dump_json(indent=2))

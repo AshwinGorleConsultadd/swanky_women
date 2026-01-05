@@ -40,7 +40,8 @@
         "detail_image_2_url": "",
         "detail_image_3_url": "",
         "detail_image_4_url": "",
-        "color": "BLACK",
+        "color_name": "Black",
+        "color_hex": "#000000",
         "details": "som details her in proper formate"
     },
     "page_3" : {

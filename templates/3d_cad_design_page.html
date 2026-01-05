@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Swanky Tech Pack - 3D CAD</title>
 
     <style>
-     
-
         @page {
-         size: 1240px 840px; /* +20px bleed on all sides */
-         margin: 0;
-        }   
+            size: 1240px 840px;
+            /* +20px bleed on all sides */
+            margin: 0;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,11 +19,11 @@
         }
 
         .page-container {
-          width: 1200px;
-          min-height: 750px;
-          max-height: 790px;
-          margin: 20px;
-          border: 3px solid #000;
+            width: 1200px;
+            min-height: 750px;
+            max-height: 790px;
+            margin: 20px;
+            border: 3px solid #000;
         }
 
 
@@ -31,7 +32,8 @@
             border-bottom: 1px solid #000;
         }
 
-        .header-left, .header-right {
+        .header-left,
+        .header-right {
             width: 30%;
         }
 
@@ -128,7 +130,7 @@
 
         .label-card {
             width: 18%;
-    
+
         }
 
         .label-title {
@@ -152,7 +154,7 @@
         .label-img-wrapper img {
             max-height: 100%;
             max-width: 100%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .label-specs {
@@ -227,7 +229,8 @@
             padding-right: 20px;
         }
 
-        .color-box-container h3, .details-content h3 {
+        .color-box-container h3,
+        .details-content h3 {
             font-size: 14px;
             text-transform: uppercase;
             margin-top: 0;
@@ -273,90 +276,99 @@
             margin-bottom: 2px;
         }
 
+        .dynamic-color-swatch {
+            background-color: {
+                    {
+                    page_2.color_hex
+                }
+            }
+
+            ;
+        }
     </style>
 </head>
 
 <body>
 
-<div class="page-container">
+    <div class="page-container">
 
-    <!-- ================= HEADER ================= -->
+        <!-- ================= HEADER ================= -->
 
-    <header class="main-header">
-        <div class="header-left">
-            <div class="info-row">Date: {{ header.date }}</div>
-            <div class="info-row">Season: {{ header.season }}</div>
-            <div class="info-row">Collection: {{ header.collection }}</div>
-            <div class="info-row">Style Name: {{ header.style_name }}</div>
-            <div class="info-row desc">Description: {{ header.description }}</div>
-        </div>
+        <header class="main-header">
+            <div class="header-left">
+                <div class="info-row">Date: {{ header.date }}</div>
+                <div class="info-row">Season: {{ header.season }}</div>
+                <div class="info-row">Collection: {{ header.collection }}</div>
+                <div class="info-row">Style Name: {{ header.style_name }}</div>
+                <div class="info-row desc">Description: {{ header.description }}</div>
+            </div>
 
-        <div class="header-center">
-            <h1>3D CAD DESIGN</h1>
-            <div class="category">{{ header.category }}</div>
-        </div>
+            <div class="header-center">
+                <h1>3D CAD DESIGN</h1>
+                <div class="category">{{ header.category }}</div>
+            </div>
 
-        <div class="header-right">
-            <div class="brand-row">
-                <div style="width: 55%;">
-                    <div class="brand-label">Brand: {{ header.brand }}</div>
-                    <div class="info-row">Size Range: {{ header.size_range }}</div>
-                    <div class="info-row">Total order quantity: {{ header.total_order_quantity }}</div>
+            <div class="header-right">
+                <div class="brand-row">
+                    <div style="width: 55%;">
+                        <div class="brand-label">Brand: {{ header.brand }}</div>
+                        <div class="info-row">Size Range: {{ header.size_range }}</div>
+                        <div class="info-row">Total order quantity: {{ header.total_order_quantity }}</div>
+                    </div>
+
+                    <div class="brand-logo">
+                        <span class="logo-text">{{ brand }}</span>
+                        <span class="logo-sub">By {{ collection }}</span>
+                    </div>
                 </div>
 
-                <div class="brand-logo">
-                    <span class="logo-text">{{ brand }}</span>
-                    <span class="logo-sub">By {{ collection }}</span>
+                <div class="info-row">Sample Size 1st-Approval: {{ header.sample_size_1st }}</div>
+                <div class="info-row">Sample Size Pre-Production: {{ header.sample_pre_production }}</div>
+                <div class="info-row">Sample Size Production Sample: {{ header.sample_production }}</div>
+            </div>
+        </header>
+
+
+
+        <div class="sketch-container">
+            <div style="height: 100%; width: 50%;">
+                <span>Front:</span>
+                <div style="width: 100%; height : 100%; display: flex; justify-content: center;">
+                    <img src="{{page_2.front_image_url}}" alt="Technical Sketch Front and Back" class="sketch-image">
                 </div>
             </div>
-
-            <div class="info-row">Sample Size 1st-Approval: {{ header.sample_size_1st }}</div>
-            <div class="info-row">Sample Size Pre-Production: {{ header.sample_pre_production }}</div>
-            <div class="info-row">Sample Size Production Sample: {{ header.sample_production }}</div>
-        </div>
-    </header>
-
-
-
-    <div class="sketch-container">
-        <div style="height: 100%; width: 50%;">
-            <span>Front:</span>
-            <div style="width: 100%; height : 100%; display: flex; justify-content: center;">
-                <img src="{{page_2.front_image_url}}" alt="Technical Sketch Front and Back" class="sketch-image">
+            <div style="height: 100%; width: 50%;">
+                <span>Back:</span>
+                <div style="width: 100%; height : 100%; display: flex; justify-content: center;">
+                    <img src="{{page_2.back_image_url}}" alt="Technical Sketch Front and Back" class="sketch-image">
+                </div>
             </div>
         </div>
-        <div style="height: 100%; width: 50%;">
-            <span>Back:</span>
-            <div style="width: 100%; height : 100%; display: flex; justify-content: center;">
-                <img src="{{page_2.back_image_url}}" alt="Technical Sketch Front and Back" class="sketch-image">
-            </div>
-        </div>
-    </div>
 
 
 
 
-    <div class="product-container">
-        <div class="gallery-section">
-            <h3>Details</h3>
-            <div class="thumbnail-grid">
-                <img src="{{page_2.detail_image_1_url}}" alt="Dress view 1">
-                <img src="{{page_2.detail_image_2_url}}" alt="Dress view 2">
-                <img src="{{page_2.detail_image_3_url}}" alt="Dress view 3">
-                <img src="{{page_2.detail_image_4_url}}" alt="Dress view 4">
-            </div>
-        </div>
-    
-        <div class="info-section">
-            <div class="color-box-container">
-                <h3>Colors</h3>
-                <div class="color-swatch">"{{page_2.color}}"</div>
-                <div class="pantone-label">PANTONE®</div>
-            </div>
-    
-            <div class="details-content">
+        <div class="product-container">
+            <div class="gallery-section">
                 <h3>Details</h3>
-                <!-- <ul class="details-list">
+                <div class="thumbnail-grid">
+                    <img src="{{page_2.detail_image_1_url}}" alt="Dress view 1">
+                    <img src="{{page_2.detail_image_2_url}}" alt="Dress view 2">
+                    <img src="{{page_2.detail_image_3_url}}" alt="Dress view 3">
+                    <img src="{{page_2.detail_image_4_url}}" alt="Dress view 4">
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="color-box-container">
+                    <h3>Colors</h3>
+                    <div class="color-swatch dynamic-color-swatch"></div>
+                    <div class="pantone-label">PANTONE@ <br>{{page_2.pantone_tcx}}</div>
+                </div>
+
+                <div class="details-content">
+                    <h3>Details</h3>
+                    <!-- <ul class="details-list">
 
                     <li>
                         Silhouette: Body-hugging fit at the torso and an A-line skirt with asymmetry.
@@ -371,12 +383,13 @@
                         Side-gathered ruched detail at the waist
                     </li>
                 </ul> -->
-                {{page_2.details}}
+                    {{page_2.details}}
+                </div>
             </div>
         </div>
+
     </div>
 
-</div>
-
 </body>
+
 </html>
