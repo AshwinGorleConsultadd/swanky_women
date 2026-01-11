@@ -25,6 +25,9 @@ class GarmentColorModel(BaseModel):
     color_hex: str
     pantone_tcx: str   # MUST be marked SUGGESTED
 
+class GarmentColorList(BaseModel):
+    colors: List[GarmentColorModel]
+
 
 # # ---------------- STRUCTURE (STEP 1) ----------------
 

@@ -4,7 +4,7 @@ from copy import deepcopy
 
 from llm import analyze_images, llm_structured, llm_query
 from generate import generatePdf
-from utils import extract_clothing_palette, map_json, combine_images_horizontally, split_into_grids
+from utils import extract_clothing_palette, map_json, combine_images_horizontally, split_into_grids, recommend_colors_from_images
 from imageGen import generate_image
 
 from models import (
@@ -18,7 +18,8 @@ from models import (
     FactoryInstructionModel,
     VerificationResult,
     QualityStandardsList,
-    SizeChartList
+    SizeChartList,
+    GarmentColorList
 )
 
 # =========================================================
@@ -66,7 +67,9 @@ def ensure_page_9_contract(page_9: dict) -> dict:
 #     ).model_dump()
 
 def extract_garment_color(images):
-    palette = extract_clothing_palette(images[0])
+    palette = recommend_colors_from_images(images[0],images[1])
+
+    # palette = extract_clothing_palette(images[0])
 
     prompt = f"""
 ROLE: Textile Color Matching Specialist  
@@ -143,7 +146,7 @@ You must NOT:
 OUTPUT
 ────────────────────────────────────────────
 
-Return **GarmentColorModel** in JSON with:
+Return List of **GarmentColorModel** in JSON with:
 
 • color_name  
 • hex  
@@ -152,12 +155,14 @@ Return **GarmentColorModel** in JSON with:
 • justification  
 • pantone_accuracy_note = "Suggested – visual approximation only"
 
+showcasing top 5-8 possible pantone colors (most nearest for manufacturer's understanding)
+
 If confidence < 0.7 → requires_confirmation = true
 """""
 
     return llm_structured(
         analyze_images(images, prompt),
-        GarmentColorModel
+        GarmentColorList
     ).model_dump()
 
 # =========================================================
@@ -1310,15 +1315,18 @@ def generate_techpack(images, context,generate=False):
         "season": header["season"],
     })
 
-    first_page_logo_prompt = f"""replace swanky by collection name {master['page_1']['brand_name']},also replace collectio name to {master['page_1']['collection_name']}"""
+    first_page_logo_prompt = f"""replace swanky by collection name {master['page_1']['brand_name']},also replace collection name to {master['page_1']['collection_name']}"""
     
     if generate==True:
-        generate_image("assets/first_page_logo.png",first_page_logo_prompt,"assets/first_page_logo_current.png")
+        generate_image(first_page_logo_prompt,"assets/first_page_logo.png","assets/first_page_logo_current.png")
 
     master["page_1"]["brand_logo"] = "assets/first_page_logo_current.png"
 
     # 4. Color
-    color = extract_garment_color(images)
+    colors = extract_garment_color(images)
+    colors = colors['colors']
+    master['page_2']['optional_colors'] = colors
+    color = colors[0]
     master["page_2"].update(color)
 
     # 5. AGENTS EXECUTION
@@ -1406,7 +1414,7 @@ Side-gathered ruched detail at the left waist
         "detail_image_2_url": images[1],
         "detail_image_3_url": images[2],
         "detail_image_4_url": images[3],
-        "image_urls": images
+        "optional_image_urls": images
     })
 
 
@@ -1448,11 +1456,12 @@ Do not invent details. Only label what is explicitly provided.
 """
 
     if generate:
-        master['page_2']['technical_sketch_img'] = generate_image(technical_sketch_prompt, "assets/combined.png")
+        master['page_2']['technical_sketch_img'] = generate_image(technical_sketch_prompt, "assets/combined.png","assets/technical_sketch.png")
     else:
-        master['page_2']['technical_sketch_img'] = "generated_image.png"
+        master['page_2']['technical_sketch_img'] = "assets/technical_sketch.png"
 
     brand_label_prompt = f"""create brand label replace swanky with collection name {master['page_1']['collection_name']}
+    and replace description of dress which is "Women's Asymmetrical Dress" by {master['header']['description']}
 
     and generate same image with modified detail 
     """
@@ -1460,6 +1469,7 @@ Do not invent details. Only label what is explicitly provided.
     if generate:
         master['page_2']['brand_label_img'] = generate_image(brand_label_prompt, "assets/brand_label.png","assets/brand_label_final.png")
     else:
+        print("going in else for brand label")
         master['page_2']['brand_label_img'] = "assets/brand_label_final.png"
 
     care_label_prompt = f"""generate care label for garment with fabric description: {factory_output.get("fabrics", [])}
@@ -1469,6 +1479,7 @@ Do not invent details. Only label what is explicitly provided.
     if generate:
         master['page_2']['care_label_img'] = generate_image(care_label_prompt, "assets/care_label.png","assets/care_label_final.png")
     else:
+        print("going in else for care label")
         master['page_2']['care_label_img'] = "assets/care_label_final.png"
 
 
@@ -1821,4 +1832,4 @@ if __name__ == "__main__":
     """
     
     # Example usage (commented out to avoid auto-run on import if needed, but safe here)
-    generate_techpack(["assets/front.png", "assets/back.png"], context)
+    generate_techpack(["assets/front.png", "assets/back.png"], context,False)

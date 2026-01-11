@@ -314,25 +314,25 @@ def recommend_colors_from_images(
     merged = merge_clusters(front_clusters, back_clusters)
     top_colors = rank_colors(merged, top_n)
 
-    output = {
-        "color_family": color_family(top_colors[0]["hex"]),
-        "top_hex_candidates": top_colors,
-        "manufacturing_note":
-            "Match to Pantone FHI (TCX) book under D65 lighting and approve via lab dip."
-    }
+    # output = {
+    #     "color_family": color_family(top_colors[0]["hex"]),
+    #     "top_hex_candidates": top_colors,
+    #     "manufacturing_note":
+    #         "Match to Pantone FHI (TCX) book under D65 lighting and approve via lab dip."
+    # }
 
-    if print_pantone_pickle:
-        pantones = load_print_pantone(print_pantone_pickle)
-        output["approx_print_pantone"] = [
-            {
-                "hex": c["hex"],
-                "matches": approx_print_pantone(c["hex"], pantones)
-            }
-            for c in top_colors
-        ]
-        output["note"] = "Print Pantone is NON-BINDING and NOT TCX."
+    # if print_pantone_pickle:
+    #     pantones = load_print_pantone(print_pantone_pickle)
+    #     output["approx_print_pantone"] = [
+    #         {
+    #             "hex": c["hex"],
+    #             "matches": approx_print_pantone(c["hex"], pantones)
+    #         }
+    #         for c in top_colors
+    #     ]
+    #     output["note"] = "Print Pantone is NON-BINDING and NOT TCX."
 
-    return output
+    return top_colors
 
 
 
@@ -441,92 +441,6 @@ def combine_images_horizontally(image_paths, output_path):
 
 # image_paths = ['assets/front.png',"assets/back.png"]
 # combine_images_horizontally(image_paths,"final.png")
-# import os
-# import numpy as np
-# from PIL import Image
-
-
-# def remove_left_white_area(img_np, white_threshold=245):
-#     """
-#     Removes continuous white area from the left side of the image.
-#     """
-#     height, width, _ = img_np.shape
-
-#     for x in range(width):
-#         column = img_np[:, x]
-#         if not np.all(column >= white_threshold):
-#             return img_np[:, x:]  # Crop from first non-white column
-
-#     return img_np
-
-
-# def is_mostly_white(grid, white_threshold=245, white_ratio=0.50):
-#     """
-#     Returns True if white pixels >= white_ratio
-#     """
-#     white_pixels = np.all(grid >= white_threshold, axis=2)
-#     white_percentage = np.sum(white_pixels) / white_pixels.size
-#     return white_percentage >= white_ratio
-
-
-# def split_into_grids(
-#     image_path,
-#     output_dir,
-#     grid_height,
-#     extra_width=190,
-#     white_threshold=245,
-#     white_ratio=0.65
-# ):
-#     os.makedirs(output_dir, exist_ok=True)
-
-#     img = Image.open(image_path).convert("RGB")
-#     img_np = np.array(img)
-
-#     # Step 1: Remove left white area
-#     img_np = remove_left_white_area(img_np, white_threshold)
-
-#     height, width, _ = img_np.shape
-#     grid_width = grid_height + extra_width
-#     count = 0
-
-#     y_positions = list(range(0, height, grid_height))
-
-#     # Fix last grid to maintain full size
-#     if y_positions[-1] + grid_height > height:
-#         y_positions[-1] = height - grid_height
-
-#     for y in y_positions:
-#         for x in range(0, width, grid_width):
-#             if x + grid_width > width:
-#                 continue
-
-#             grid = img_np[y:y + grid_height, x:x + grid_width]
-
-#             if grid.shape[0] != grid_height or grid.shape[1] != grid_width:
-#                 continue
-
-#             # Skip grids with ≥80% white
-#             if is_mostly_white(grid, white_threshold, white_ratio):
-#                 continue
-
-#             Image.fromarray(grid).save(
-#                 os.path.join(output_dir, f"grid_{count}.png")
-#             )
-#             count += 1
-
-#     print(f"Saved {count} grids after filtering white & fixing bottom crop.")
-
-
-# # ======================
-# # Example usage
-# # ======================
-# if __name__ == "__main__":
-#     split_into_grids(
-#         image_path="final.png",
-#         output_dir="output_grids",
-#         grid_height=612,   # height of grid
-#         extra_width=190    # extra width you added
-#     )
 
 import os
 import numpy as np
