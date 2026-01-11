@@ -11,40 +11,51 @@
         "page_9": "wash_and_care_label"
     },
     "header": {
-        "date": "06/01/2026",
+        "date": "11/01/2026",
         "season": "Fall/Winter 25",
         "collection": "Grandiose",
-        "style_name": "JC-GR-WCD-FA25",
-        "description": "Wrap coat dress, fabric direction: Gabardine / Wool blends",
-        "category": "Dresses",
+        "style_name": "JCC-G-FW25-WCD",
+        "description": "A sophisticated wrap coat dress crafted from premium Gabardine and Wool blends, designed to offer elegance and warmth for the Fall/Winter season.",
+        "category": "Outerwear",
         "brand": "JC & Co",
         "size_range": "S\u2013XL",
         "total_order_quantity": null,
-        "sample_size_1st": "M",
+        "sample_size_1st": "Small",
         "sample_pre_production": null,
         "sample_production": null
     },
     "page_1": {
         "garment_back_view_url": "assets/back.png",
         "garment_front_view_url": "assets/front.png",
-        "style_number": "JC-GR-WCD-FA25",
-        "date": "06/01/2026",
+        "style_number": "JCC-G-FW25-WCD",
+        "date": "11/01/2026",
         "brand_name": "JC & Co",
         "collection_name": "Grandiose",
-        "brand_logo": "assets/brand_logo.png",
+        "brand_logo": "assets/first_page_logo_current.png",
         "season": "Fall/Winter 25"
     },
     "page_2": {
         "front_image_url": "assets/front.png",
         "back_image_url": "assets/back.png",
-        "detail_image_1_url": "assets/p-1.png",
-        "detail_image_2_url": "assets/p-2.png",
-        "detail_image_3_url": "assets/p1.png",
-        "detail_image_4_url": "assets/p2.png",
-        "color_name": "Mimosa",
+        "detail_image_1_url": "output_grids/grid_0.png",
+        "detail_image_2_url": "output_grids/grid_1.png",
+        "detail_image_3_url": "output_grids/grid_2.png",
+        "detail_image_4_url": "output_grids/grid_3.png",
+        "color_name": "Golden Yellow",
         "color_hex": "#E5B74F",
-        "details": "Trench-style silhouette with long sleeves and a wrap front secured by a self-fabric belt, finished with notched lapels and practical side pockets.",
-        "pantone_tcx": "Pantone 14-0848 TCX (SUGGESTED)"
+        "details": "Silhouette: Fitted at the waist, flared silhouette  \nSleeves: Long sleeves with clean hems  \nOther Features: Lapel collar, waist tie belt, visible seams, straight hem",
+        "pantone_tcx": "14-0756 TCX",
+        "image_urls": [
+            "output_grids/grid_0.png",
+            "output_grids/grid_1.png",
+            "output_grids/grid_2.png",
+            "output_grids/grid_3.png",
+            "output_grids/grid_4.png",
+            "output_grids/grid_5.png"
+        ],
+        "technical_sketch_img": "generated_image.png",
+        "brand_label_img": "assets/brand_label_final.png",
+        "care_label_img": "assets/care_label_final.png"
     },
     "page_3": {
         "technical_sketch_img": "assets/sketches/front.png",
@@ -69,28 +80,74 @@
     "page_4": {
         "accessories": [
             {
-                "item": "Buttons",
-                "quantity": "Unknown",
-                "material": "Plastic",
-                "dimensions_mm": "15-20 mm diameter",
-                "finish": "Glossy",
-                "placement": "Front Closure",
-                "description": "Buttons (15-20 mm diameter)",
-                "qty": "Unknown",
-                "color": "Match Shell",
-                "position": "Front Closure"
+                "item_description": "Brand Label",
+                "quantity": "1",
+                "material": "Woven",
+                "dimensions": "5x2 cm",
+                "color": "Black",
+                "placement": "Center back neck",
+                "justification": "Necessary labels and threads are specified for compliance and brand consistency.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "description": "Brand Label - Woven - 5x2 cm",
+                "qty": "1",
+                "position": "Center back neck"
             },
             {
-                "item": "Belt Buckle",
-                "quantity": "1 pc",
-                "material": "Metal",
-                "dimensions_mm": "Varies",
-                "finish": "Matte",
-                "placement": "Belt",
-                "description": "Belt Buckle (Varies)",
-                "qty": "1 pc",
-                "color": "Match Shell",
-                "position": "Belt"
+                "item_description": "Care Label",
+                "quantity": "1",
+                "material": "Woven",
+                "dimensions": "5x2 cm",
+                "color": "White",
+                "placement": "Left side seam",
+                "justification": "Necessary labels and threads are specified for compliance and brand consistency.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "description": "Care Label - Woven - 5x2 cm",
+                "qty": "1",
+                "position": "Left side seam"
+            },
+            {
+                "item_description": "Size Label",
+                "quantity": "1",
+                "material": "Woven",
+                "dimensions": "2x2 cm",
+                "color": "Black",
+                "placement": "Center back neck",
+                "justification": "Necessary labels and threads are specified for compliance and brand consistency.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "description": "Size Label - Woven - 2x2 cm",
+                "qty": "1",
+                "position": "Center back neck"
+            },
+            {
+                "item_description": "Interlining",
+                "quantity": "2",
+                "material": "Non-woven",
+                "dimensions": "Custom",
+                "color": "White",
+                "placement": "Lapel and Front Placket",
+                "justification": "Interlining is necessary for structural integrity.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "description": "Interlining - Non-woven - Custom",
+                "qty": "2",
+                "position": "Lapel and Front Placket"
+            },
+            {
+                "item_description": "Thread",
+                "quantity": "As required",
+                "material": "Polyester core-spun",
+                "dimensions": null,
+                "color": "Matching",
+                "placement": "All seams",
+                "justification": "Necessary labels and threads are specified for compliance and brand consistency.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "description": "Thread - Polyester core-spun",
+                "qty": "As required",
+                "position": "All seams"
             }
         ]
     },
@@ -98,233 +155,232 @@
         "seams": [
             {
                 "seam_location": "Shoulder Seam",
-                "seam_function": "Load bearing",
-                "seam_type": "Superimposed Seam",
-                "stitch_type": "Lockstitch (301)",
-                "allowance_mm": "10",
-                "machine": "Single needle machine",
-                "type": "Superimposed Seam",
+                "seam_type": "Superimposed",
+                "seam_symbol": "SSa-1",
+                "seam_allowance_mm": "10",
+                "description": "Shoulder Seam",
+                "stitch_type": "Lockstitch",
+                "stitch_symbol": "301",
+                "stitch_size": "3 mm",
+                "machine_type": "Single needle lockstitch machine",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Superimposed",
                 "symbol": "SSa-1",
                 "allowance": "10",
-                "title": null,
-                "description": "Shoulder Seam",
-                "stitch_symbol": "301",
-                "stitch_size": "3 mm"
+                "machine": "Single needle lockstitch machine"
             },
             {
                 "seam_location": "Side Seam",
-                "seam_function": "Structural",
-                "seam_type": "Superimposed Seam",
-                "stitch_type": "Safety Stitch",
-                "allowance_mm": "10",
-                "machine": "Overlock machine",
-                "type": "Superimposed Seam",
-                "symbol": "SSa-1",
-                "allowance": "10",
-                "title": null,
+                "seam_type": "Superimposed",
+                "seam_symbol": "SSa-1",
+                "seam_allowance_mm": "10",
                 "description": "Side Seam",
-                "stitch_symbol": "301",
-                "stitch_size": "3 mm"
-            },
-            {
-                "seam_location": "Hem",
-                "seam_function": "Finish",
-                "seam_type": "Edge Finish",
-                "stitch_type": "Blind stitch",
-                "allowance_mm": "15",
-                "machine": "Blind stitch machine",
-                "type": "Edge Finish",
-                "symbol": "SSa-1",
-                "allowance": "15",
-                "title": null,
-                "description": "Hem",
-                "stitch_symbol": "301",
-                "stitch_size": "3 mm"
-            },
-            {
-                "seam_location": "Lapel Edge",
-                "seam_function": "Finish",
-                "seam_type": "Edge Finish",
-                "stitch_type": "Topstitch",
-                "allowance_mm": "5",
-                "machine": "Single needle machine",
-                "type": "Edge Finish",
-                "symbol": "SSa-1",
-                "allowance": "5",
-                "title": null,
-                "description": "Lapel Edge",
-                "stitch_symbol": "301",
-                "stitch_size": "3 mm"
-            },
-            {
-                "seam_location": "Belt Attachment",
-                "seam_function": "Load bearing",
-                "seam_type": "Superimposed Seam",
-                "stitch_type": "Lockstitch (301)",
-                "allowance_mm": "10",
-                "machine": "Single needle machine",
-                "type": "Superimposed Seam",
+                "stitch_type": "Overlock",
+                "stitch_symbol": "504",
+                "stitch_size": "4 mm",
+                "machine_type": "4-thread overlock",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Superimposed",
                 "symbol": "SSa-1",
                 "allowance": "10",
-                "title": null,
-                "description": "Belt Attachment",
-                "stitch_symbol": "301",
-                "stitch_size": "3 mm"
+                "machine": "4-thread overlock"
             },
             {
-                "seam_location": "Pocket",
-                "seam_function": "Structural",
-                "seam_type": "Patch Seam",
-                "stitch_type": "Lockstitch (301)",
-                "allowance_mm": "10",
-                "machine": "Single needle machine",
-                "type": "Patch Seam",
+                "seam_location": "Center Back Seam",
+                "seam_type": "Superimposed",
+                "seam_symbol": "SSa-1",
+                "seam_allowance_mm": "10",
+                "description": "Center Back Seam",
+                "stitch_type": "Lockstitch",
+                "stitch_symbol": "301",
+                "stitch_size": "3 mm",
+                "machine_type": "Single needle lockstitch machine",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Superimposed",
                 "symbol": "SSa-1",
                 "allowance": "10",
-                "title": null,
-                "description": "Pocket",
+                "machine": "Single needle lockstitch machine"
+            },
+            {
+                "seam_location": "Neckline Seam",
+                "seam_type": "Superimposed",
+                "seam_symbol": "SSa-1",
+                "seam_allowance_mm": "10",
+                "description": "Neckline Seam",
+                "stitch_type": "Lockstitch",
                 "stitch_symbol": "301",
-                "stitch_size": "3 mm"
+                "stitch_size": "3 mm",
+                "machine_type": "Single needle lockstitch machine",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Superimposed",
+                "symbol": "SSa-1",
+                "allowance": "10",
+                "machine": "Single needle lockstitch machine"
+            },
+            {
+                "seam_location": "Armhole Seam",
+                "seam_type": "Lapped",
+                "seam_symbol": "LSb-2",
+                "seam_allowance_mm": "10",
+                "description": "Armhole Seam",
+                "stitch_type": "Chainstitch",
+                "stitch_symbol": "401",
+                "stitch_size": "4 mm",
+                "machine_type": "Flatlock machine",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Lapped",
+                "symbol": "LSb-2",
+                "allowance": "10",
+                "machine": "Flatlock machine"
+            },
+            {
+                "seam_location": "Hem Seam",
+                "seam_type": "Superimposed",
+                "seam_symbol": "SSa-1",
+                "seam_allowance_mm": "10",
+                "description": "Hem Seam",
+                "stitch_type": "Lockstitch",
+                "stitch_symbol": "301",
+                "stitch_size": "3 mm",
+                "machine_type": "Single needle lockstitch machine",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Superimposed",
+                "symbol": "SSa-1",
+                "allowance": "10",
+                "machine": "Single needle lockstitch machine"
+            },
+            {
+                "seam_location": "Waist Seam",
+                "seam_type": "Superimposed",
+                "seam_symbol": "SSa-1",
+                "seam_allowance_mm": "10",
+                "description": "Waist Seam",
+                "stitch_type": "Overlock",
+                "stitch_symbol": "504",
+                "stitch_size": "4 mm",
+                "machine_type": "4-thread overlock",
+                "justification": "ISO Stitch Codes and machines have been chosen for structural stability and durability, matching the stress level and visibility of each seam area.",
+                "confidence": 0.9,
+                "requires_confirmation": false,
+                "type": "Superimposed",
+                "symbol": "SSa-1",
+                "allowance": "10",
+                "machine": "4-thread overlock"
             }
         ]
     },
     "page_6": {
-        "measurement_image_url": "assets/ab-label.png",
+        "measurement_image_url": "assets/measurement_diagram.png",
         "measurements": [
             {
-                "pom_name": "Bust",
-                "code": "A",
-                "description": "1 inch below armhole",
-                "sample_size_value": 92.0,
-                "tolerance_cm": "+/- 1.27",
                 "point_of_measurement": "Bust",
-                "measurement_cm": 92.0
+                "pom_code": "A",
+                "description": "Bust circumference",
+                "sample_size_value_cm": 96.0,
+                "tolerance_cm": "\u00b11.0\u20131.5",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
+                "code": "A",
+                "measurement_cm": 96.0
             },
             {
-                "pom_name": "Waist",
-                "code": "B",
-                "description": "Narrowest part",
-                "sample_size_value": 76.0,
-                "tolerance_cm": "+/- 1.27",
                 "point_of_measurement": "Waist",
-                "measurement_cm": 76.0
+                "pom_code": "B",
+                "description": "Waist circumference",
+                "sample_size_value_cm": 80.0,
+                "tolerance_cm": "\u00b11.0\u20131.5",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
+                "code": "B",
+                "measurement_cm": 80.0
             },
             {
-                "pom_name": "Sweep/Hem",
+                "point_of_measurement": "Hip",
+                "pom_code": "C",
+                "description": "Hip circumference",
+                "sample_size_value_cm": 104.0,
+                "tolerance_cm": "\u00b11.0\u20131.5",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
                 "code": "C",
-                "description": "Bottom edge of the garment",
-                "sample_size_value": 104.0,
-                "tolerance_cm": "+/- 1.27",
-                "point_of_measurement": "Sweep/Hem",
                 "measurement_cm": 104.0
             },
             {
-                "pom_name": "Shoulder",
-                "code": "D",
-                "description": "Shoulder seam to shoulder seam",
-                "sample_size_value": 38.0,
-                "tolerance_cm": "+/- 0.64",
-                "point_of_measurement": "Shoulder",
-                "measurement_cm": 38.0
-            },
-            {
-                "pom_name": "Armhole",
-                "code": "E",
-                "description": "Around the armhole",
-                "sample_size_value": 48.0,
-                "tolerance_cm": "+/- 0.64",
-                "point_of_measurement": "Armhole",
-                "measurement_cm": 48.0
-            },
-            {
-                "pom_name": "Sleeve Length",
-                "code": "F",
-                "description": "From shoulder seam to cuff",
-                "sample_size_value": 61.0,
-                "tolerance_cm": "+/- 1.27",
-                "point_of_measurement": "Sleeve Length",
-                "measurement_cm": 61.0
-            },
-            {
-                "pom_name": "Bicep",
-                "code": "G",
-                "description": "Around the fullest part of upper arm",
-                "sample_size_value": 32.0,
-                "tolerance_cm": "+/- 0.64",
-                "point_of_measurement": "Bicep",
-                "measurement_cm": 32.0
-            },
-            {
-                "pom_name": "Cuff",
-                "code": "H",
-                "description": "Around the wrist opening",
-                "sample_size_value": 24.0,
-                "tolerance_cm": "+/- 0.64",
-                "point_of_measurement": "Cuff",
-                "measurement_cm": 24.0
-            },
-            {
-                "pom_name": "Neck Width",
-                "code": "I",
-                "description": "From one side of neck opening to the other",
-                "sample_size_value": 18.0,
-                "tolerance_cm": "+/- 0.32",
-                "point_of_measurement": "Neck Width",
-                "measurement_cm": 18.0
-            },
-            {
-                "pom_name": "Front Length",
-                "code": "J",
-                "description": "From high point shoulder to hem",
-                "sample_size_value": 134.0,
-                "tolerance_cm": "+/- 0.67",
-                "point_of_measurement": "Front Length",
-                "measurement_cm": 134.0
-            },
-            {
-                "pom_name": "Back Length",
-                "code": "K",
-                "description": "Center back length from neck seam",
-                "sample_size_value": 132.0,
-                "tolerance_cm": "+/- 0.67",
                 "point_of_measurement": "Back Length",
-                "measurement_cm": 132.0
+                "pom_code": "D",
+                "description": "Back length from neck to hem",
+                "sample_size_value_cm": 60.0,
+                "tolerance_cm": "\u00b10.5\u20131.0",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
+                "code": "D",
+                "measurement_cm": 60.0
             },
             {
-                "pom_name": "Lapel Width",
-                "code": "L",
-                "description": "At the widest point",
-                "sample_size_value": 9.0,
-                "tolerance_cm": "+/- 0.32",
-                "point_of_measurement": "Lapel Width",
-                "measurement_cm": 9.0
+                "point_of_measurement": "Sleeve Length",
+                "pom_code": "E",
+                "description": "Sleeve length from shoulder to cuff",
+                "sample_size_value_cm": 120.0,
+                "tolerance_cm": "\u00b10.5\u20131.0",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
+                "code": "E",
+                "measurement_cm": 120.0
             },
             {
-                "pom_name": "Pocket Opening",
-                "code": "M",
-                "description": "Width of pocket opening",
-                "sample_size_value": 15.0,
-                "tolerance_cm": "+/- 0.32",
-                "point_of_measurement": "Pocket Opening",
-                "measurement_cm": 15.0
+                "point_of_measurement": "Shoulder Width",
+                "pom_code": "F",
+                "description": "Shoulder width from seam to seam",
+                "sample_size_value_cm": 40.0,
+                "tolerance_cm": "\u00b10.5\u20131.0",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
+                "code": "F",
+                "measurement_cm": 40.0
             },
             {
-                "pom_name": "Belt Length",
-                "code": "N",
-                "description": "End to end length of the belt",
-                "sample_size_value": 220.0,
-                "tolerance_cm": "+/- 1.27",
-                "point_of_measurement": "Belt Length",
-                "measurement_cm": 220.0
-            },
-            {
-                "pom_name": "Button Spacing",
-                "code": "O",
-                "description": "Distance between buttons",
-                "sample_size_value": 8.0,
-                "tolerance_cm": "+/- 0.32",
-                "point_of_measurement": "Button Spacing",
-                "measurement_cm": 8.0
+                "point_of_measurement": "Neck Width",
+                "pom_code": "G",
+                "description": "Neck width from seam to seam",
+                "sample_size_value_cm": 10.0,
+                "tolerance_cm": "\u00b10.5\u20131.0",
+                "grading": "Graded",
+                "value_source": "Pattern",
+                "justification": "These values ensure a fit that aligns with the semi-fitted design. The tolerances are typical for medium confidence in fit requirements.",
+                "confidence": 0.85,
+                "requires_confirmation": false,
+                "code": "G",
+                "measurement_cm": 10.0
             }
         ]
     },
@@ -332,381 +388,121 @@
         "fabrics": [
             {
                 "usage": "Shell",
-                "composition": "Gabardine Wool Blend",
+                "description": "Shell Fabric, 80% Wool / 20% Gabardine, 260\u2013300 GSM, Matte surface",
+                "composition": "80% Wool / 20% Gabardine",
                 "construction": "Woven",
-                "weight_gsm": "300-350 GSM",
-                "finish": "Twill finish",
-                "color_pantone": "Yellow",
-                "care": "Dry Clean},{",
-                "description": "Shell, Gabardine Wool Blend, 300-350 GSM, Woven, Twill finish",
+                "weight_gsm": "260\u2013300",
+                "stretch": "None",
+                "finish": "Matte",
                 "color": "Yellow",
-                "position": "Shell"
-            },
-            {
-                "usage": "Pocketing",
-                "composition": "100% Cotton",
-                "construction": "Plain Weave",
-                "weight_gsm": "150-200 GSM",
-                "finish": "Smooth",
-                "color_pantone": "Match to Shell",
-                "care": "Dry Clean",
-                "description": "Pocketing, 100% Cotton, 150-200 GSM, Plain Weave, Smooth",
-                "color": "Match to Shell",
-                "position": "Pocketing"
-            },
-            {
-                "usage": "Belt Fabric",
-                "composition": "Gabardine Wool Blend",
-                "construction": "Woven",
-                "weight_gsm": "300-350 GSM",
-                "finish": "Twill finish",
-                "color_pantone": "Yellow",
-                "care": "Dry Clean",
-                "description": "Belt Fabric, Gabardine Wool Blend, 300-350 GSM, Woven, Twill finish",
-                "color": "Yellow",
-                "position": "Belt Fabric"
-            },
-            {
-                "usage": "Fusible Interfacing",
-                "composition": "Polyester/Viscose",
-                "construction": "Non-Woven",
-                "weight_gsm": "90-110 GSM",
-                "finish": "Adhesive",
-                "color_pantone": "Neutral",
-                "care": "N/A",
-                "description": "Fusible Interfacing, Polyester/Viscose, 90-110 GSM, Non-Woven, Adhesive",
-                "color": "Neutral",
-                "position": "Fusible Interfacing"
+                "position": "Outer body and sleeve",
+                "justification": "The composition of wool and gabardine balances warmth, structure, and a matte finish. The weight is set for winter suitability. The blend respects the restriction of polyester due to sustainability goals.",
+                "confidence": 0.95,
+                "requires_confirmation": false
             }
         ],
         "quality_standards": [
             {
-                "test": "Fiber content and composition verification",
-                "method": "ISO 1833 series; ASTM D629; FTIR screening for finishes/coatings",
-                "requirements": "Must match label within \u00b13% for each fiber; disclose all fibers per region",
-                "comments": "Material unknown\u2014confirm before labeling. Ensure compliance with 16 CFR 303 (US) and EU 1007/2011"
+                "test": "Dimensional Stability",
+                "method": "ISO 5077",
+                "requirements": "Max Shrinkage \u00b12%",
+                "comments": "Ensures the coat retains its correct sizing after washing or dry cleaning, crucial for maintaining fit and appearance."
             },
             {
-                "test": "Fabric mass per unit area (GSM)",
-                "method": "ASTM D3776 / ISO 3801",
-                "requirements": "As per design spec \u00b15%",
-                "comments": "Record basis weight for shell, lining, and interlinings"
+                "test": "Color Fastness to Washing",
+                "method": "ISO 105-C06",
+                "requirements": "\u2265 Grade 4",
+                "comments": "Prevents the gabardine/wool blend fabric from bleeding or fading during laundering, maintaining the coat's aesthetic."
             },
             {
-                "test": "Fabric construction (ends/picks)",
-                "method": "ASTM D3775 / ISO 7211-2",
-                "requirements": "As per spec \u00b15%",
-                "comments": "For woven shell and lining fabrics"
+                "test": "Color Fastness to Rubbing",
+                "method": "ISO 105-X12",
+                "requirements": "Dry \u2265 4, Wet \u2265 3.5",
+                "comments": "Critical for maintaining the appearance of the coat, especially in areas prone to friction."
             },
             {
-                "test": "Dimensional stability to home laundering",
-                "method": "AATCC 135, 3 cycles (appropriate wash/dry conditions)",
-                "requirements": "Length and width change \u2264 3.0%",
-                "comments": "Only if garment is labeled washable; otherwise perform dry-cleaning stability"
-            },
-            {
-                "test": "Dimensional stability to dry cleaning",
-                "method": "ISO 3175-2 (machine dry-cleaning), 1 cycle",
-                "requirements": "Length and width change \u2264 2.0%",
-                "comments": "Recommended for trench coats likely labeled dry clean only"
-            },
-            {
-                "test": "Skewness/garment twist",
-                "method": "AATCC 179",
-                "requirements": "Skew and twist change \u2264 3%",
-                "comments": "Evaluate after specified cleansing method"
-            },
-            {
-                "test": "Appearance retention after cleansing",
-                "method": "AATCC 124 (home laundering) or visual rating after ISO 3175 dry-clean",
-                "requirements": "Overall appearance/smoothness \u2265 Grade 4",
-                "comments": "Assess seams, hems, lapels, and facings"
-            },
-            {
-                "test": "Colorfastness to home laundering",
-                "method": "AATCC 61, Test 2A",
-                "requirements": "Color change \u2265 Grade 4; staining to multifiber \u2265 Grade 4",
-                "comments": "If washable"
-            },
-            {
-                "test": "Colorfastness to dry cleaning",
-                "method": "AATCC 132",
-                "requirements": "Color change \u2265 Grade 4; staining \u2265 Grade 4",
-                "comments": "Include interlining/lining bleed check"
-            },
-            {
-                "test": "Colorfastness to crocking (rubbing)",
-                "method": "AATCC 8",
-                "requirements": "Dry \u2265 Grade 4; Wet \u2265 Grade 3\u20134",
-                "comments": "Test shell and belt fabric"
-            },
-            {
-                "test": "Colorfastness to perspiration",
-                "method": "AATCC 15",
-                "requirements": "Color change and staining \u2265 Grade 4",
-                "comments": "Assess for belt/areas contacting skin/lining"
-            },
-            {
-                "test": "Colorfastness to water",
-                "method": "AATCC 107",
-                "requirements": "Color change and staining \u2265 Grade 4",
-                "comments": "Includes resistance to water spotting"
-            },
-            {
-                "test": "Lightfastness (xenon)",
-                "method": "AATCC 16.3, Option 3, 20 AFU",
-                "requirements": "Color change \u2265 Grade 4",
-                "comments": "Yellow shades may be more sensitive\u2014confirm outdoors exposure suitability"
-            },
-            {
-                "test": "Water repellency (spray test)",
-                "method": "AATCC 22",
-                "requirements": "Initial rating \u2265 90; after 5 home launderings or 1 dry-clean \u2265 80",
-                "comments": "Applicable if water-repellent finish is claimed"
-            },
-            {
-                "test": "Hydrostatic pressure (waterproofness)",
-                "method": "ISO 811",
-                "requirements": "Initial \u2265 300 mm H2O; after 5 washes \u2265 200 mm H2O",
-                "comments": "Only required if waterproof/water-resistant claim is made"
-            },
-            {
-                "test": "Rain test (seam leakage)",
-                "method": "AATCC 35",
-                "requirements": "Total leakage \u2264 1.0 g; no seam leakage",
-                "comments": "For rainwear claims and storm flaps"
-            },
-            {
-                "test": "Air permeability",
-                "method": "ASTM D737 at 100 Pa",
-                "requirements": "As per design target (e.g., 50\u2013200 L/m\u00b2/s); record actual",
-                "comments": "Balance weather protection and comfort"
-            },
-            {
-                "test": "Water vapor transmission (breathability)",
-                "method": "ASTM E96, Procedure B",
-                "requirements": "\u2265 5000 g/m\u00b2/24 h if laminated/coated",
-                "comments": "If breathable claim or membrane present"
-            },
-            {
-                "test": "Tensile strength (grab)",
-                "method": "ASTM D5034",
-                "requirements": "Warp \u2265 350 N; Fill \u2265 300 N",
-                "comments": "Shell fabric"
-            },
-            {
-                "test": "Tear strength (Elmendorf)",
-                "method": "ASTM D1424",
-                "requirements": "Warp \u2265 12 N; Fill \u2265 12 N",
-                "comments": "Shell fabric"
-            },
-            {
-                "test": "Seam strength",
+                "test": "Seam Strength",
                 "method": "ISO 13935-2",
                 "requirements": "\u2265 200 N",
-                "comments": "Critical seams: armhole, side, sleeve, belt loops"
+                "comments": "Ensures durability of structural seams under stress, particularly important for high-stress areas like the side seams and armholes."
             },
             {
-                "test": "Seam slippage",
-                "method": "ISO 13936-2 (fixed load)",
-                "requirements": "Slippage < 4 mm at 180 N",
-                "comments": "At pocket openings, side seams, belt loops"
+                "test": "Appearance After Washing",
+                "method": "ISO 7768",
+                "requirements": "\u2265 Grade 3",
+                "comments": "Ensures the coat maintains its appearance post-laundering, crucial for consumer satisfaction."
             },
             {
-                "test": "Abrasion resistance (Martindale)",
-                "method": "ASTM D4966, 12 kPa",
-                "requirements": "\u2265 20,000 cycles to 2-thread break/hole",
-                "comments": "Test shell and pocketing where applicable"
-            },
-            {
-                "test": "Pilling resistance (Martindale)",
-                "method": "ISO 12945-2",
-                "requirements": "Grade \u2265 4 after 5000 cycles",
-                "comments": "Assess shell and lining"
-            },
-            {
-                "test": "Seam puckering (appearance)",
-                "method": "AATCC 88B",
-                "requirements": "Seam smoothness \u2265 Grade 4",
-                "comments": "Evaluate on front panels and lapel seams"
-            },
-            {
-                "test": "Stitch density and workmanship",
-                "method": "Visual per ASTM D6193 guidelines",
-                "requirements": "Main seams 8\u201310 SPI; no skipped/broken stitches; alignment within 3 mm",
-                "comments": "Check topstitching on lapels, belt, and hems"
-            },
-            {
-                "test": "Button attachment strength",
-                "method": "In-house button pull test with tensile gauge",
-                "requirements": "\u2265 90 N for 10 s; no button, shank, or stitch failure",
-                "comments": "Apply to any buttons/buckles used"
-            },
-            {
-                "test": "Snap fastener attachment strength",
-                "method": "ASTM D4846",
-                "requirements": "Separation force \u2265 90 N; no garment damage",
-                "comments": "If snaps are used"
-            },
-            {
-                "test": "Zipper performance",
-                "method": "ASTM D2061",
-                "requirements": "Crosswise strength \u2265 90 N; top/bottom stop strength pass; 1000-cycle reciprocation\u2014no failure",
-                "comments": "Main front zipper and pockets (if present)"
-            },
-            {
-                "test": "Belt and buckle/D-ring strength & slippage",
-                "method": "In-house tensile and slippage test",
-                "requirements": "Belt webbing break \u2265 400 N; buckle/D-ring slippage \u2264 10 mm at 200 N; no fracture",
-                "comments": "Applies to belted waist feature"
-            },
-            {
-                "test": "Metal corrosion resistance (trims)",
-                "method": "ISO 9227 (NSS), 24 h",
-                "requirements": "No red rust or functional impairment",
-                "comments": "For buckles, snaps, eyelets"
-            },
-            {
-                "test": "Nickel release (metal trims)",
-                "method": "EN 1811 with EN 12472 pre-treatment",
-                "requirements": "< 0.5 \u00b5g/cm\u00b2/week",
-                "comments": "Compliance for parts in prolonged skin contact"
-            },
-            {
-                "test": "Flammability (adult apparel)",
-                "method": "16 CFR 1610",
-                "requirements": "Class 1 (normal flammability)",
-                "comments": "Exclude raised-fiber pile fabrics if not applicable"
-            },
-            {
-                "test": "pH of aqueous extract",
-                "method": "ISO 3071",
-                "requirements": "4.0\u20137.5",
-                "comments": "Shell, lining, and trims in contact with skin"
-            },
-            {
-                "test": "Formaldehyde content (free/partly hydrolyzable)",
-                "method": "ISO 14184-1",
-                "requirements": "\u2264 75 mg/kg (adult, direct/extended contact)",
-                "comments": "Target lower if brand RSL requires"
-            },
-            {
-                "test": "Azo dyes (restricted aromatic amines)",
-                "method": "EN 14362-1 and EN 14362-3",
-                "requirements": "Not detected (\u2264 20 mg/kg)",
-                "comments": "All dyed components including belt and threads"
-            },
-            {
-                "test": "Extractable heavy metals",
-                "method": "EN 16711-1",
-                "requirements": "Comply with REACH Annex XVII / brand RSL limits",
-                "comments": "Includes Pb, Cd, Cr(VI) (if leather), Ni, Co, Cu"
-            },
-            {
-                "test": "PFAS (fluorinated substances)",
-                "method": "LC\u2011MS/MS screening per ZDHC MRSL v3.0 guidance",
-                "requirements": "Not intentionally added; targeted analytes below reporting limits",
-                "comments": "Particularly relevant if water repellency is claimed"
-            },
-            {
-                "test": "Odor evaluation",
-                "method": "Sensory panel assessment",
-                "requirements": "No objectionable odor (mold, solvent, phenolic)",
-                "comments": "Across shell, lining, and trims"
-            },
-            {
-                "test": "Care label accuracy and durability",
-                "method": "ISO 3758 for symbols; label durability AATCC 61 2A, 5 cycles or 1 dry-clean",
-                "requirements": "Care instructions reflect actual performance; labels legible/no detachment",
-                "comments": "Update once actual fabric is confirmed"
-            },
-            {
-                "test": "Needle/metal contamination control (factory)",
-                "method": "Needle detector scan (ferrous)",
-                "requirements": "No metal contamination detected",
-                "comments": "Applicable where needle policies are in place"
+                "test": "Abrasion Resistance",
+                "method": "ISO 12947-2",
+                "requirements": "\u2265 20,000 rubs",
+                "comments": "Essential for outerwear to withstand wear and tear, especially in high-contact areas."
             }
         ]
     },
     "page_8": {
         "size_chart": [
             {
-                "pom": "Chest Width",
-                "s": 18.5,
-                "m": 20.0,
-                "l": 22.0,
-                "xl": 24.0
-            },
-            {
-                "pom": "Body Length",
-                "s": 27.0,
-                "m": 28.0,
-                "l": 29.0,
-                "xl": 30.0
-            },
-            {
-                "pom": "Shoulder Width",
-                "s": 17.0,
-                "m": 18.0,
-                "l": 19.0,
-                "xl": 20.0
-            },
-            {
-                "pom": "Sleeve Length",
-                "s": 33.0,
-                "m": 34.0,
-                "l": 35.0,
-                "xl": 36.0
+                "pom": "Bust",
+                "s": 92.0,
+                "m": 97.0,
+                "l": 102.0,
+                "xl": 107.0
             },
             {
                 "pom": "Waist",
-                "s": 30.0,
-                "m": 32.0,
-                "l": 34.0,
-                "xl": 36.0
+                "s": 80.0,
+                "m": 85.0,
+                "l": 90.0,
+                "xl": 95.0
             },
             {
                 "pom": "Hip",
-                "s": 37.0,
+                "s": 100.0,
+                "m": 105.0,
+                "l": 110.0,
+                "xl": 115.0
+            },
+            {
+                "pom": "Sleeve Length",
+                "s": 60.0,
+                "m": 61.0,
+                "l": 62.0,
+                "xl": 63.0
+            },
+            {
+                "pom": "Body Length",
+                "s": 110.0,
+                "m": 112.0,
+                "l": 114.0,
+                "xl": 116.0
+            },
+            {
+                "pom": "Across Shoulder",
+                "s": 38.0,
                 "m": 39.0,
-                "l": 41.0,
-                "xl": 43.0
-            },
-            {
-                "pom": "Inseam",
-                "s": 30.0,
-                "m": 31.0,
-                "l": 32.0,
-                "xl": 33.0
-            },
-            {
-                "pom": "Thigh",
-                "s": 22.0,
-                "m": 23.5,
-                "l": 25.0,
-                "xl": 26.5
-            },
-            {
-                "pom": "Leg Opening",
-                "s": 14.0,
-                "m": 15.0,
-                "l": 16.0,
-                "xl": 17.0
+                "l": 40.0,
+                "xl": 41.0
             }
         ]
     },
     "page_9": {
         "wash_label": {
-            "composition": "Gabardine Wool Blend",
-            "washing_instructions": "Dry Clean Only",
-            "bleaching": "Do Not Bleach",
-            "drying_instructions": "Line Dry can be done",
-            "ironing_instructions": "Cool Iron",
+            "composition": "80% Wool / 20% Gabardine",
+            "washing_instructions": "Do not wash",
+            "bleaching": "Do not bleach",
+            "drying_instructions": "Do not tumble dry",
+            "ironing_instructions": "Iron on low heat",
             "dry_cleaning": {
-                "line_1": "Dry Clean with Any Solvent",
-                "line_2": "Except Trichloroethylene"
+                "line_1": "Professional dry clean only",
+                "line_2": null
             },
-            "label_colors": "Black on White"
+            "standards": [
+                "Made in India"
+            ],
+            "justification": "Instructions are based on fabric composition, factoring in cleaning and ironing methods for wool-gabardine blends.",
+            "confidence": 0.95,
+            "requires_confirmation": false
         },
         "care_label": {
             "image": "assets/care_label.png"
@@ -731,7 +527,6 @@
                 "title": "Bluesign",
                 "description": "The Bluesign System reduces impact on people and the environment in the entire textile supply chain, based on input stream management."
             }
-        ],
-        "wash_care_label_img": "assets/care_label.png"
+        ]
     }
 }

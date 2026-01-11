@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Wash and Care Label</title>
 
     <style>
-        
-
         @page {
             size: 1240px 790px;
             margin: 0;
@@ -37,7 +36,8 @@
             border-bottom: 1px solid #000;
         }
 
-        .header-left, .header-right {
+        .header-left,
+        .header-right {
             width: 30%;
         }
 
@@ -114,7 +114,7 @@
             width: 100%;
             margin-top: 20px;
             font-size: 13px;
-            margin : 2%
+            margin: 2%
         }
 
         .label-row {
@@ -129,7 +129,7 @@
             padding: 25px 20px;
         }
 
-        .label-box + .label-box {
+        .label-box+.label-box {
             border-left: 0px solid #333;
         }
 
@@ -161,7 +161,7 @@
             max-width: 150px;
             max-height: 220px;
             object-fit: contain;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
         }
 
         .instruction-list {
@@ -182,104 +182,109 @@
 
 <body>
 
-<div class="page-container">
+    <div class="page-container">
 
-    <!-- ================= HEADER ================= -->
-    <header class="main-header">
-        <div class="header-left">
-            <div class="info-row">Date: {{ header.date }}</div>
-            <div class="info-row">Season: {{ header.season }}</div>
-            <div class="info-row">Collection: {{ header.collection }}</div>
-            <div class="info-row">Style Name: {{ header.style_name }}</div>
-            <div class="info-row desc">Description: {{ header.description }}</div>
-        </div>
-
-        <div class="header-center">
-            <h1>Wash and Care Label</h1>
-            <div class="category">{{ header.category }}</div>
-        </div>
-
-        <div class="header-right">
-            <div class="brand-row">
-                <div style="width: 55%;">
-                    <div class="brand-label">Brand: {{ header.brand }}</div>
-                    <div class="info-row">Size Range: {{ header.size_range }}</div>
-                    <div class="info-row">Total order quantity: {{ header.total_order_quantity }}</div>
-                </div>
-                <div class="brand-logo">
-                    <span class="logo-text">{{ header.brand }}</span>
-                    <span class="logo-sub">By {{ header.collection }}</span>
-                </div>
-            </div>
-            <div class="info-row">Sample Size 1st-Approval: {{ header.sample_size_1st }}</div>
-            <div class="info-row">Sample Size Pre-Production: {{ header.sample_pre_production }}</div>
-            <div class="info-row">Sample Size Production Sample: {{ header.sample_production }}</div>
-        </div>
-    </header>
-
-    <!-- ================= WASH & CARE ================= -->
-    <div class="label-section">
-        <!-- TOP -->
-         <div class="label-row" style="border: none; margin-bottom: 0%;">
-            <div style="width: 50%; margin-left: 20px;" class="box-title" >WASH LABEL</div>
-            <div class="box-title text-right">CARE LABEL</div>
-         </div>
-        <div class="label-row">
-
-            <!-- WASH LABEL -->
-            <div class="label-box">
-                <div class="wash-content">
-                    <p><strong>Composition:</strong> <em>{{ page_9.wash_label.composition }}</em></p>
-                    <p><strong>Washing Instructions:</strong> <em>{{ page_9.wash_label.washing_instructions }}</em></p>
-                    <p><strong>Bleaching:</strong> <em>{{ page_9.wash_label.bleaching }}</em></p>
-                    <p><strong>Drying Instructions:</strong> <em>{{ page_9.wash_label.drying_instructions }}</em></p>
-                    <p><strong>Ironing Instructions:</strong> <em>{{ page_9.wash_label.ironing_instructions }}</em></p>
-                    <p>
-                        <strong>Dry Cleaning:</strong>
-                        <em>{{ page_9.wash_label.dry_cleaning.line_1 }}<br>{{ page_9.wash_label.dry_cleaning.line_2 }}</em>
-                    </p>
-                    <p>The carelabel colors: <strong>{{ page_9.wash_label.label_colors }}</strong></p>
-                </div>
+        <!-- ================= HEADER ================= -->
+        <header class="main-header">
+            <div class="header-left">
+                <div class="info-row">Date: {{ header.date }}</div>
+                <div class="info-row">Season: {{ header.season }}</div>
+                <div class="info-row">Collection: {{ header.collection }}</div>
+                <div class="info-row">Style Name: {{ header.style_name }}</div>
+                <div class="info-row desc">Description: {{ header.description }}</div>
             </div>
 
-            <!-- CARE LABEL IMAGE -->
-            <div class="label-box">
-                <div class="care-label-wrapper">
-                    <img src="{{ page_9.care_label.image }}" alt="Care Label">
-                    <!-- <img src="../assets/label_care.png" alt="Care Label"> -->
-                </div>
+            <div class="header-center">
+                <h1>Wash and Care Label</h1>
+                <div class="category">{{ header.category }}</div>
             </div>
 
-        </div>
+            <div class="header-right">
+                <div class="brand-row">
+                    <div style="width: 55%;">
+                        <div class="brand-label">Brand: {{ header.brand }}</div>
+                        <div class="info-row">Size Range: {{ header.size_range }}</div>
+                        <div class="info-row">Total order quantity: {{ header.total_order_quantity }}</div>
+                    </div>
+                    <div class="brand-logo">
+                        <span class="logo-text">{{ header.brand }}</span>
+                        <span class="logo-sub">By {{ header.collection }}</span>
+                    </div>
+                </div>
+                <div class="info-row">Sample Size 1st-Approval: {{ header.sample_size_1st }}</div>
+                <div class="info-row">Sample Size Pre-Production: {{ header.sample_pre_production }}</div>
+                <div class="info-row">Sample Size Production Sample: {{ header.sample_production }}</div>
+            </div>
+        </header>
 
-        <!-- BOTTOM -->
-        <div class="label-row">
-            <!-- CARE INSTRUCTIONS -->
-            <div class="label-box">
-                <div class="box-title">CARE LABEL INSTRUCTIONS</div>
-                <ul class="instruction-list">
-                    {% for instruction in page_9.care_label_instructions %}
+        <!-- ================= WASH & CARE ================= -->
+        <div class="label-section">
+            <!-- TOP -->
+            <div class="label-row" style="border: none; margin-bottom: 0%;">
+                <div style="width: 50%; margin-left: 20px;" class="box-title">WASH LABEL</div>
+                <div class="box-title text-right">CARE LABEL</div>
+            </div>
+            <div class="label-row">
+
+                <!-- WASH LABEL -->
+                <div class="label-box">
+                    <div class="wash-content">
+                        <p><strong>Composition:</strong> <em>{{ page_9.wash_label.composition }}</em></p>
+                        <p><strong>Washing Instructions:</strong> <em>{{ page_9.wash_label.washing_instructions }}</em>
+                        </p>
+                        <p><strong>Bleaching:</strong> <em>{{ page_9.wash_label.bleaching }}</em></p>
+                        <p><strong>Drying Instructions:</strong> <em>{{ page_9.wash_label.drying_instructions }}</em>
+                        </p>
+                        <p><strong>Ironing Instructions:</strong> <em>{{ page_9.wash_label.ironing_instructions }}</em>
+                        </p>
+                        <p>
+                            <strong>Dry Cleaning:</strong>
+                            <em>{{ page_9.wash_label.dry_cleaning.line_1 }}<br>{{ page_9.wash_label.dry_cleaning.line_2
+                                }}</em>
+                        </p>
+                        <p>The carelabel colors: <strong>white with black text</strong></p>
+                    </div>
+                </div>
+
+                <!-- CARE LABEL IMAGE -->
+                <div class="label-box">
+                    <div class="care-label-wrapper">
+                        <img src="{{ page_9.care_label.image }}" alt="Care Label">
+                        <!-- <img src="../assets/label_care.png" alt="Care Label"> -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM -->
+            <div class="label-row">
+                <!-- CARE INSTRUCTIONS -->
+                <div class="label-box">
+                    <div class="box-title">CARE LABEL INSTRUCTIONS</div>
+                    <ul class="instruction-list">
+                        {% for instruction in page_9.care_label_instructions %}
                         <li>{{ instruction | safe }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <!-- OTHER STANDARDS -->
-            <div class="label-box">
-                <div class="box-title">OTHER STANDARDS</div>
-                <div class="standards-content">
-                    <!-- <p>{{ page_9.other_standards.intro }}</p> -->
-                    {% for standard in page_9.other_standards %}
-                        <p><strong>{{ standard.title }}</strong> – {{ standard.description }}</p>
-                    {% endfor %}
+                        {% endfor %}
+                    </ul>
                 </div>
+
+                <!-- OTHER STANDARDS -->
+                <div class="label-box">
+                    <div class="box-title">OTHER STANDARDS</div>
+                    <div class="standards-content">
+                        <!-- <p>{{ page_9.other_standards.intro }}</p> -->
+                        {% for standard in page_9.other_standards %}
+                        <p><strong>{{ standard.title }}</strong> – {{ standard.description }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
-
 </body>
+
 </html>

@@ -4,4 +4,6 @@ Tech_Pack.pdf.DS_Store
 __pycache__
 *.pdf
 public/uploads/*.png
-temp/*.pdf
+temp/*pdf
+output_grids/*png
+output_grids_80/*png
