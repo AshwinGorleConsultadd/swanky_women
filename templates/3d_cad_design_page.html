@@ -318,8 +318,8 @@
                     </div>
 
                     <div class="brand-logo">
-                        <span class="logo-text">{{ brand }}</span>
-                        <span class="logo-sub">By {{ collection }}</span>
+                        <span class="logo-text">{{ header.brand }}</span>
+                        <span class="logo-sub">By {{ header.collection }}</span>
                     </div>
                 </div>
 
@@ -363,7 +363,7 @@
             <div class="info-section">
                 <div class="color-box-container">
                     <h3>Colors</h3>
-                    <div class="color-swatch dynamic-color-swatch" style="background-color: {{ page_2.color_hex or '#ffffff' }};"></div>
+                    <div class="color-swatch dynamic-color-swatch" style="background-color: {{ page_2.color_hex}}"></div>
                     <div class="pantone-label">PANTONE@ <br>{{page_2.pantone_tcx}}</div>
                 </div>
 

@@ -1467,20 +1467,20 @@ Do not invent details. Only label what is explicitly provided.
     """
 
     if generate:
-        master['page_2']['brand_label_img'] = generate_image(brand_label_prompt, "assets/brand_label.png","assets/brand_label_final.png")
+        master['page_3']['brand_label_img'] = generate_image(brand_label_prompt, "assets/brand_label.png","assets/brand_label_final.png")
     else:
         print("going in else for brand label")
-        master['page_2']['brand_label_img'] = "assets/brand_label_final.png"
+        master['page_3']['brand_label_img'] = "assets/brand_label_final.png"
 
     care_label_prompt = f"""generate care label for garment with fabric description: {factory_output.get("fabrics", [])}
         accessories include {factory_output.get("accessories", [])}
             and dress description as {page2_details}"""
 
     if generate:
-        master['page_2']['care_label_img'] = generate_image(care_label_prompt, "assets/care_label.png","assets/care_label_final.png")
+        master['page_3']['care_label_img'] = generate_image(care_label_prompt, "assets/care_label.png","assets/care_label_final.png")
     else:
         print("going in else for care label")
-        master['page_2']['care_label_img'] = "assets/care_label_final.png"
+        master['page_3']['care_label_img'] = "assets/care_label_final.png"
 
 
 
@@ -1779,8 +1779,9 @@ Do not invent details. Only label what is explicitly provided.
     
     # Page 9 Care
     master["page_9"]["wash_label"] = factory_output.get("care_label", {})
+    master['page_9']['wash_care_label_img'] = master['page_3']['care_label_img']
     ensure_page_9_contract(master["page_9"])
-
+    
 
     final_json = map_json(master)
 

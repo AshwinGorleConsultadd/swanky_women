@@ -53,6 +53,23 @@
             "output_grids/grid_4.png",
             "output_grids/grid_5.png"
         ],
+        "optional_colors" : [
+            {
+              "color_name": "orange",
+              "color_hex": "#e38034",
+              "pantone_tcx": "tax-55"
+             },
+            {
+              "color_name": "blue",
+              "color_hex": "#e38034",
+              "pantone_tcx": "tax-55" 
+             },
+            {
+              "color_name": "red",
+              "color_hex": "#eb7034",
+              "pantone_tcx": "tax-55"
+             }
+          ],
         "technical_sketch_img": "assets/technical_sketch.png",
         "brand_label_img": "assets/brand_label_final.png",
         "care_label_img": "assets/care_label_final.png"
@@ -60,7 +77,7 @@
     "page_3": {
         "technical_sketch_img": "assets/ab-label.png",
         "brand_label": {
-            "image_url": "assets/labels/brand_label.png",
+            "image_url": "assets/brand_label_final.png",
             "size": "Approx 5 cm (W) \u00d7 3 cm (H)",
             "placement": "Inner back neck seam"
         },
@@ -70,11 +87,12 @@
             "placement": "Below or beside the brand label"
         },
         "care_label": {
-            "image_url": "assets/care_label.png",
+            "image_url": "assets/care_label_final.png",
             "size": "Approx 5 cm \u00d7 8 cm",
             "placement": "Inner left side seam, above 10\u201315 cm from the hem"
         },
-        "care_label_img": "assets/care_label.png",
+        "care_label_img": "assets/care_label_final.png",
+        "brand_label_img":"assets/brand_label_final.png",
         "label_notes": "The color of the labels is white. Type of: 100% Recycled polyester woven label."
     },
     "page_4": {
@@ -460,7 +478,7 @@
                 "pom": "Sleeve Length",
                 "s": 60.0,
                 "m": 61.0,
-                "l": 62.0,
+                "l": 62.0,  
                 "xl": 63.0
             },
             {
@@ -513,6 +531,7 @@
                 "title": "Bluesign",
                 "description": "The Bluesign System reduces impact on people and the environment in the entire textile supply chain, based on input stream management."
             }
-        ]
+        ],
+        "wash_care_label_img":"assets/care_label_final.png"
     }
 }

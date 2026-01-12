@@ -319,3 +319,27 @@ def update_image_field(payload: dict):
     save_draft(draft)
 
     return {"status": "updated"}
+
+@app.post("/api/update-multiple-fields")
+def update_multiple_fields(payload: dict):
+    page_id = payload["page_id"]
+    updates = payload["updates"]  # dict of key → value
+
+    draft = load_draft()
+
+    if page_id not in draft:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "Invalid page id"}
+        )
+
+    for key, value in updates.items():
+        updated = update_value_by_key(draft[page_id], key, value)
+        if not updated:
+            return JSONResponse(
+                status_code=400,
+                content={"error": f"Field not found: {key}"}
+            )
+
+    save_draft(draft)
+    return {"status": "updated"}
