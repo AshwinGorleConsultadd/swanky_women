@@ -1407,7 +1407,7 @@ Side-gathered ruched detail at the left waist
     })
     
     combined_image = combine_images_horizontally(["assets/front.png", "assets/back.png"],"assets/combined.png")
-    images = split_into_grids(combined_image,"output_grids",grid_height=575,extra_width=190)
+    images = split_into_grids(combined_image,"assets",grid_height=575,extra_width=190)
 
     master["page_2"].update({
         "detail_image_1_url": images[0],
