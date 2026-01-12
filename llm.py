@@ -3,16 +3,17 @@ from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from openai import OpenAI
+from langchain_core.messages import HumanMessage
 
 
 load_dotenv()
 
 # ---------- Normal text output ----------
-# def llm_query(query: str):
-#     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
-#     # llm = llm.bind(tools=[{"type": "web_search"}])
-#     message = HumanMessage(content=f"Answer this question:\n{query}")
-#     return llm.invoke([message]).content
+def llm_query(query: str,model:str="gpt-4o"):
+    llm = ChatOpenAI(model=model, temperature=0, api_key=os.getenv("OPENAI_API_KEY"),seed=25)
+    # llm = llm.bind(tools=[{"type": "web_search"}])
+    message = HumanMessage(content=f"Answer this question:\n{query}")
+    return llm.invoke([message]).content
 
 
 # def llm_with_search(query:str):
@@ -33,13 +34,13 @@ load_dotenv()
 #     return response.output_text
 
 # ---------- Structured output with schema ----------
-def llm_structured(query: str, output_schema: BaseModel):
+def llm_structured(query: str, output_schema: BaseModel,model:str="gpt-4o"):
     print("query is ", query)
     """
     query: str -> user question
     output_schema: pydantic BaseModel -> defines structured output
     """
-    llm = ChatOpenAI(model="gpt-5", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
+    llm = ChatOpenAI(model=model, temperature=0, api_key=os.getenv("OPENAI_API_KEY"),seed=25)
     
     # Bind the schema to the LLM
     llm_with_structure = llm.with_structured_output(output_schema)
@@ -69,7 +70,7 @@ def local_image_to_data_url(path: str) -> str:
     # Adjust mime type here if your images are PNG/JPEG/etc
     return f"data:image/jpeg;base64,{b64}"
 
-def analyze_images(image_paths: List[str], prompt: str):
+def analyze_images(image_paths: List[str], prompt: str,model:str="gpt-4o"):
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     # Convert all images to data URLs
@@ -85,7 +86,7 @@ def analyze_images(image_paths: List[str], prompt: str):
     content = [{"type": "input_text", "text": prompt}] + images_content
 
     response = client.responses.create(
-        model="gpt-4o",  # or another vision-capable model
+        model=model,  # or another vision-capable model
         input=[
             {
                 "role": "user",
@@ -94,6 +95,8 @@ def analyze_images(image_paths: List[str], prompt: str):
         ],
         # no response_format param, plain output
     )
+
+    print("gpt ans on image input is , ",response)
 
     return response.output[0].content[0].text
 

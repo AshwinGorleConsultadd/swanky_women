@@ -17,7 +17,7 @@ from models import (
 
 def extract_structure_strict(images) -> dict:
     prompt = """
-    ROLE: Technical Garment Analyst.
+    ROLE: Technical Garment Analyst and currently writing data for tech pack.
     GOAL: Extract BINARY structural data only.
     
     Analyze the image and determine the following boolean/enum values.
@@ -31,6 +31,7 @@ def extract_structure_strict(images) -> dict:
     - pockets_present: Are there visible pockets?
     - sleeves: long, short, sleeveless, 3/4.
     - slit_present: Is there a slit?
+    there can be other things present like these so map those stuff too
     
     OUTPUT: JSON only matching GarmentStructureModel.
     """
@@ -72,15 +73,17 @@ def derive_accessories_strict(structure: dict, images) -> list:
       }}
     ]
 
-    LOGIC MAP:
+    Example LOGIC MAP: (everything is based on either prev data given or analyzing image description , nothing is to be inferred in this section)
     - Front/Back closure = True -> Needs Buttons OR Zipper OR Snaps (Look at image).
-    - Belt present = True -> Needs Belt Buckle (if visible) or D-rings.
+    - Belt present = True → This should not automatically mean a belt buckle or D-rings are required.
+If a belt is visible, it could be any type of fastening, such as a standard buckle, D-rings, a cloth knot, or another design.
+The system should identify the actual accessory requirements by looking at the image, instead of always assuming a belt buckle or D-rings.
     - Lapel present = True -> (No accessory, but implies interfacing which is fabric).
-    - Sleeves = long -> Might need cuff buttons?
+    - Sleeves = long -> does image contain cuff buttons?
     
-    QUANTITY LOGIC:
-    - Count visible buttons.
-    - If unknown, default to 1 for zipper, 1 for buckle.
+    Example QUANTITY LOGIC:
+    - Count visible buttons, or things to count which are visible.
+    - include main fabric and knot or any other type of fabric other than main fabric.
     
     STRICT EXCLUSIONS:
     - NO Fabrics (Shell, Lining).
@@ -89,8 +92,31 @@ def derive_accessories_strict(structure: dict, images) -> list:
     - NO Jewelry (Earrings, Necklaces, Bracelets) - these are styling, NOT part of the garment BOM.
     - NO Shoes, Bags, or Human accessories.
     - ONLY items physically attached to the garment during manufacturing.
-    
+    - add main fabric and any other type of fabric other than main fabric.
+
     RETURN: JSON list of AccessoryModel.
+
+    below are some examples of accessories models taken from other dresses for writing style reference: (just for writing style, do not take anny data for current garment from it)
+    Description (Name, Type, Dimensions, Material) Quantity per style Color (Pantone) Position
+1.
+Concealed/Invisible Zippe, (22–24 cm) 1 pc Black Center Back
+2.
+Thread, 100% polyester (recycled polyester) core spun sewing thread
+Matches fabric
+3.
+Brand Label 1 pc
+Neck
+4. Size Label
+1 pc
+Below main label
+5.
+Care Label
+1 pc
+Inside left side seam
+6.
+Hanger Loop(Cotton twill tape) 1 pc
+Inside center back
+neck seam
     """
     
     result = llm_structured(
@@ -109,7 +135,6 @@ def derive_accessories_strict(structure: dict, images) -> list:
         
     return accessories
 
-
 # =========================================================
 # STEP 3 — FABRICS (CUTTABLE ONLY)
 # =========================================================
@@ -126,7 +151,7 @@ def derive_fabrics_strict(structure: dict, images, context_text: str) -> list:
     Output: [
       {{
         "usage": "Shell Fabric",
-        "composition": "90% Cotton / 10% Spandex",
+        "composition": "90% Cotton / 10% Polyester",
         "construction": "Woven",
         "weight_gsm": "220-260 GSM",
         "finish": "Matte surface",
@@ -141,11 +166,16 @@ def derive_fabrics_strict(structure: dict, images, context_text: str) -> list:
     - "Pocketing" (If pockets_present=True)
     - "Belt Fabric" (If belt_present=True)
     - "Fusible Interfacing" (If lapel_present=True or needed for structure)
+    - for composition finalization think of dress Season, occasion, durability, comfort, garment's functionality,what all properties do we require to produce that particular garment
     
     INVALID:
     - Thread, Buttons, Zippers, Elastic (unless wide waistband fabric).
     
     OUTPUT: JSON list of FabricModel.
+
+    example for reference of way of writing - from another garment tech pack.
+    Description, Construction, Compositio, Weight, Finishing, Washing | color (pantone) | position
+    Shell Fabric, 90% Cotton / 10% Spandex, 220–260 GSM, 2-way stretch, Matte surface | Black | Outer body and one sleeve
     """
     
     result = llm_structured(
@@ -208,6 +238,15 @@ def derive_seams_strict(structure: dict, images) -> list:
     - Hem -> Finish -> Blind stitch or Topstitch?
     
     OUTPUT: JSON list of SeamModel.
+
+    below is an example of how seam model data is writting from an existing garmet:(just for writing style and understanding , don;t fill out anything same without thinking for given current garment)
+    "Seam Type","Seam Symbol","Seam Allowance (mm)","Seam Position/Description","Stitch Type","Stitch Symbol","Stitch Size","Machine Type"
+"Superimposed Seam","SSa-1","10","Shoulder Seam","Lockstitch (301)","301","3 mm","Single needle machine"
+"Superimposed Seam","SSb-2","6","Side Seam","Lockstitch (301)","301","3 mm","Single needle machine"
+"Superimposed Seam","SSa","8","Side seams, shoulder seams, center back seam","Overlock (504)","504","4 mm","4-thread Overlock"
+"Edge Finish","EFa","10","Hem stitching, neckline topstitch (if needed)","Lockstitch (301)","301","2-2.5 mm","Lockstitch Machine"
+"Edge Finish Seam","EFb","10","Hem (if lined or unlined stretch hem)","Coverstitch (406)","406","3 mm","Coverstitch Machine"
+"Lapped Seam (invisible zip)","LSb","10","Center back zipper insertion","Lockstitch (301)","301","",""
     """
     
     result = llm_structured(
@@ -259,6 +298,8 @@ def derive_measurements_strict(structure: dict, images) -> list:
         analyze_images(images, prompt),
         MeasurementsList
     )
+
+    print("measurement has output , ",result)
     
     measurements = result.model_dump()['measurements']
     

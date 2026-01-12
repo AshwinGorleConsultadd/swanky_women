@@ -156,14 +156,15 @@ def generate_techpack(input_images,input_context):
     for example below is desc of one of clothing from its techpack:
     color:Black which is color_name
     also provide its hex in color_hex
-    DETAILS (keep it short and in same formate like below one (silhouette, sleeves, other features) , keep concice and direct point with br tag for line break)
-Silhouette: Body-hugging fit at the top, flowing into
+
+    DETAILS/description (keep it short and in same formate like below one (silhouette, sleeves, other features) , keep concice and direct point with br tag for line break)
+"Silhouette: Body-hugging fit at the top, flowing into
 an A-line skirt with asymmetrical hem
 Sleeves: Full-length fitted sleeves with clean hems
 Other Features:
 High turtleneck collar, close-fitting
 Thigh-high front slit on the left side
-Side-gathered ruched detail at the left waist
+Side-gathered ruched detail at the left waist"
 
 
 for color and hex code 
