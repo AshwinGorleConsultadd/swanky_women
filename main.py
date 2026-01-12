@@ -135,7 +135,7 @@ def generate_techpack(input_images, input_context):
     p1["brand_name"] = header["brand"]
     p1["collection_name"] = header["collection"]
     p1["season"] = header["season"]
-    p1.setdefault("brand_logo", "assets/brand_logo.png")
+    p1.setdefault("brand_logo_url", "assets/brand_logo.png")
 
     # -----------------------------------------------------
     # 4. COLOR

@@ -41,13 +41,15 @@
         "detail_image_2_url": "assets/p-2.png",
         "detail_image_3_url": "assets/p1.png",
         "detail_image_4_url": "assets/p2.png",
+        "optional_detail_images_url": ["assets/p2.png","assets/p2.png", "assets/p2.png", "assets/p2.png"],
         "color_name": "Mimosa",
         "color_hex": "#E5B74F",
+        "optional_color_hex": ["#E5B74F","#E5B74F","#E5B74F","#E5B74F"],
         "details": "Trench-style silhouette with long sleeves and a wrap front secured by a self-fabric belt, finished with notched lapels and practical side pockets.",
         "pantone_tcx": "Pantone 14-0848 TCX (SUGGESTED)"
     },
     "page_3": {
-        "technical_sketch_img": "assets/sketches/front.png",
+        "technical_sketch_img": "assets/ab-label.png",
         "brand_label": {
             "image_url": "assets/labels/brand_label.png",
             "size": "Approx 5 cm (W) \u00d7 3 cm (H)",
